@@ -1,6 +1,4 @@
 # Tubes2_13521099
-The Application of BFS and DFS Algorithms in Solving Maze Treasure Hunt Problems.
-# Tubes2_13521099
 <h2 align="center">
 📱 BFS and DFS for Solving Maze Treasure Hunt Problems 📱<br/>
 </h2>
