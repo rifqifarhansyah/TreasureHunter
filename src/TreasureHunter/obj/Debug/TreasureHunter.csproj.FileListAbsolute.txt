@@ -1,11 +1,10 @@
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\bin\Debug\TreasureHunter.exe.config
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\bin\Debug\TreasureHunter.exe
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\bin\Debug\TreasureHunter.pdb
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.AssemblyReference.cache
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.SuggestedBindingRedirects.cache
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.Form1.resources
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.Properties.Resources.resources
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.GenerateResource.cache
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.CoreCompileInputs.cache
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.exe
-D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.pdb
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.AssemblyReference.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.SuggestedBindingRedirects.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.Properties.Resources.resources
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.GenerateResource.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.CoreCompileInputs.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\bin\Debug\TreasureHunter.exe.config
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\bin\Debug\TreasureHunter.exe
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\bin\Debug\TreasureHunter.pdb
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.exe
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.pdb
