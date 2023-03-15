@@ -8,3 +8,4 @@ C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHu
 C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\bin\Debug\TreasureHunter.pdb
 C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.exe
 C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.pdb
+C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.Form1.resources
