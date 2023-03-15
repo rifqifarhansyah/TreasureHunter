@@ -1,0 +1,11 @@
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\bin\Debug\TreasureHunter.exe.config
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\bin\Debug\TreasureHunter.exe
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\bin\Debug\TreasureHunter.pdb
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.AssemblyReference.cache
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.SuggestedBindingRedirects.cache
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.Form1.resources
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.Properties.Resources.resources
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.GenerateResource.cache
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.CoreCompileInputs.cache
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.exe
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.pdb
