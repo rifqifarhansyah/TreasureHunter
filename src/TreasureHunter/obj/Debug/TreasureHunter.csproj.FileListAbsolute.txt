@@ -9,3 +9,14 @@ C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHu
 C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.exe
 C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.pdb
 C:\File\Kuliah\SEM4\Strategi Algoritma\Tubes2(21)\Tubes2_13521099\src\TreasureHunter\obj\Debug\TreasureHunter.Form1.resources
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\bin\Debug\TreasureHunter.exe.config
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\bin\Debug\TreasureHunter.exe
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\bin\Debug\TreasureHunter.pdb
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.AssemblyReference.cache
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.SuggestedBindingRedirects.cache
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\obj\Debug\TreasureHunter.Form1.resources
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\obj\Debug\TreasureHunter.Properties.Resources.resources
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.GenerateResource.cache
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\obj\Debug\TreasureHunter.csproj.CoreCompileInputs.cache
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\obj\Debug\TreasureHunter.exe
+D:\Kuliah\Semester 4\STIMA\TUBES 2\Tubes2_dicarryVieridanZaki\src\TreasureHunter\obj\Debug\TreasureHunter.pdb
