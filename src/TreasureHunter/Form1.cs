@@ -82,5 +82,10 @@ namespace TreasureHunter
         {
 
         }
+
+        private void label_Click(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
