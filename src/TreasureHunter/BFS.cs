@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace TreasureHunterAlgo
@@ -9,14 +10,12 @@ namespace TreasureHunterAlgo
         private Node curNode;
         private List<Node> discovered;
         private Queue<Node> liveNode;
-        private int treasureFound;
         public BFS()
         {
             m = new Maze();
             curNode = new Node();
             discovered = new List<Node> ();
             liveNode =  new Queue<Node> ();
-            treasureFound = 0;
         }
         public BFS(Maze m)
         {
@@ -56,15 +55,72 @@ namespace TreasureHunterAlgo
                     liveNode.Enqueue(upperNode);
                 }
             }
-            this.treasureFound = 0;
+        }
+        public Node CurNode
+        {
+            get { return this.curNode; }
+            set { this.curNode = value; }
         }
         public void doAction()
         {
             // Cell priority {up, right, down, left}
-            while (treasureFound != this.m.TreasureCount && this.liveNode.Count != 0)
+            while (this.liveNode.Count != 0)
             {
                 Node tempNode = liveNode.Dequeue();
+                if (!isDiscovered(tempNode, this.discovered))
+                {
+                    this.curNode = tempNode;
+                    this.discovered.Add(tempNode);
+                    if (this.m.Content[curNode.I][curNode.J] == "T")
+                    {
+                        this.curNode.TreasureFound++;
+                    }
+                    if (this.curNode.TreasureFound == this.m.TreasureCount) {
+                        break;
+                    }
+                    if (this.m.isIdxEff(curNode.I - 1, curNode.J))
+                    {
+                        if (this.m.Content[curNode.I - 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I - 1, curNode.J))
+                            {
+                                Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
+                                liveNode.Enqueue(upperNode);
+                            }
+                    }
+                    if (this.m.isIdxEff(curNode.I, curNode.J + 1))
+                    {
+                        if (this.m.Content[curNode.I][curNode.J + 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J + 1))
+                        {
+                            Node upperNode = new Node(curNode.I, curNode.J + 1, curNode);
+                            liveNode.Enqueue(upperNode);
+                        }
+                    }
+                    if (this.m.isIdxEff(curNode.I + 1, curNode.J))
+                    {
+                        if (this.m.Content[curNode.I + 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I + 1, curNode.J))
+                        {
+                            Node upperNode = new Node(curNode.I + 1, curNode.J, curNode);
+                            liveNode.Enqueue(upperNode);
+                        }
+                    }
+                    if (this.m.isIdxEff(curNode.I, curNode.J - 1))
+                    {
+                        if (this.m.Content[curNode.I][curNode.J - 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J - 1))
+                        {
+                            Node upperNode = new Node(curNode.I, curNode.J - 1, curNode);
+                            liveNode.Enqueue(upperNode);
+                        }
+                    }
+                }
             }
+        }
+
+        public static bool isDiscovered(Node n, List<Node> discoveredNodes)
+        {
+            foreach (var node in discoveredNodes)
+            {
+                if (node == n) return true;
+            }
+            return false;
         }
         
     }
