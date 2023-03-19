@@ -45,7 +45,7 @@ namespace TreasureHunterAlgo
                 this.path.Add(cell);
             }
             this.path.Add((other.I, other.J));
-            this.treasureFound = other.treasureFound;
+            //this.treasureFound = other.treasureFound;
         }
         public Node(int i, int j, Node other)
         {
