@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TreasureHunter
 {
@@ -65,9 +66,37 @@ namespace TreasureHunter
         }
         private void label_Click(object sender, EventArgs e)
         {
-
+            
         }
 
+        private void chooseStartingFolder_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                filePath.Text = folderBrowserDialog1.SelectedPath;
+            }
+        }
+
+        private void searchFile_Click(object sender, EventArgs e)
+        {
+            string path = filePath.Text + "\\" + FileName.Text;
+            if (File.Exists(path))
+            {
+                label8.Text = "File loaded";
+            } 
+            else
+            {
+                label8.Text = "File not found";
+            }
+        }
+        private void visualize_Click(object sender, EventArgs e)
+        {
+            if (!this.BFS.Checked && !this.DFS.Checked)
+            {
+                this.placeholder.Text = "Please choose an algorithm to implement!";
+            }
+            //else if (this.BFS.Che)
+        }
         private void button1_Click(object sender, System.EventArgs e)
         {
 

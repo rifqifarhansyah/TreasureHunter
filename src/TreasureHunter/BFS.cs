@@ -75,16 +75,17 @@ namespace TreasureHunterAlgo
                     {
                         this.curNode.TreasureFound++;
                     }
-                    if (this.curNode.TreasureFound == this.m.TreasureCount) {
+                    if (this.curNode.TreasureFound == this.m.TreasureCount)
+                    {
                         break;
                     }
                     if (this.m.isIdxEff(curNode.I - 1, curNode.J))
                     {
                         if (this.m.Content[curNode.I - 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I - 1, curNode.J))
-                            {
-                                Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
-                                liveNode.Enqueue(upperNode);
-                            }
+                        {
+                            Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
+                            liveNode.Enqueue(upperNode);
+                        }
                     }
                     if (this.m.isIdxEff(curNode.I, curNode.J + 1))
                     {
@@ -112,6 +113,10 @@ namespace TreasureHunterAlgo
                     }
                 }
             }
+            // if (curNode.TreasureFound < this.m.TreasureCount)
+            // {
+            // 
+            // }
         }
 
         public static bool isDiscovered(Node n, List<Node> discoveredNodes)

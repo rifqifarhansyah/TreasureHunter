@@ -72,12 +72,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(769, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(443, 65);
+            this.label1.Size = new System.Drawing.Size(434, 54);
             this.label1.TabIndex = 0;
             this.label1.Text = "TREASURE HUNT";
             this.label1.Click += new System.EventHandler(this.label_Click);
@@ -115,7 +115,7 @@
             this.listView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(-27, 108);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(481, 705);
             this.listView1.TabIndex = 3;
@@ -129,13 +129,13 @@
             this.StartingFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartingFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.StartingFolder.Location = new System.Drawing.Point(76, 351);
-            this.StartingFolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StartingFolder.Margin = new System.Windows.Forms.Padding(4);
             this.StartingFolder.Name = "StartingFolder";
             this.StartingFolder.Size = new System.Drawing.Size(287, 59);
             this.StartingFolder.TabIndex = 5;
             this.StartingFolder.Text = "Choose Folder";
             this.StartingFolder.UseVisualStyleBackColor = false;
-            this.StartingFolder.Click += new System.EventHandler(this.label_Click);
+            this.StartingFolder.Click += new System.EventHandler(this.chooseStartingFolder_Click);
             // 
             // SearchFile
             // 
@@ -154,7 +154,7 @@
             this.SearchFile.TabIndex = 7;
             this.SearchFile.Text = "Search";
             this.SearchFile.UseVisualStyleBackColor = false;
-            this.SearchFile.Click += new System.EventHandler(this.label_Click);
+            this.SearchFile.Click += new System.EventHandler(this.searchFile_Click);
             // 
             // Visualize
             // 
@@ -195,7 +195,7 @@
             this.FileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FileName.ForeColor = System.Drawing.Color.LightGray;
             this.FileName.Location = new System.Drawing.Point(76, 249);
-            this.FileName.Margin = new System.Windows.Forms.Padding(0);
+            this.FileName.Margin = new System.Windows.Forms.Padding();
             this.FileName.Multiline = true;
             this.FileName.Name = "FileName";
             this.FileName.Size = new System.Drawing.Size(259, 34);
@@ -239,7 +239,7 @@
             this.BFS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BFS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.BFS.Location = new System.Drawing.Point(76, 559);
-            this.BFS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BFS.Margin = new System.Windows.Forms.Padding(4);
             this.BFS.Name = "BFS";
             this.BFS.Size = new System.Drawing.Size(67, 28);
             this.BFS.TabIndex = 12;
@@ -253,7 +253,7 @@
             this.DFS.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DFS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.DFS.Location = new System.Drawing.Point(76, 586);
-            this.DFS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DFS.Margin = new System.Windows.Forms.Padding(4);
             this.DFS.Name = "DFS";
             this.DFS.Size = new System.Drawing.Size(68, 28);
             this.DFS.TabIndex = 13;
@@ -379,7 +379,7 @@
             // 
             this.panel1.Controls.Add(this.placeholder);
             this.panel1.Location = new System.Drawing.Point(500, 209);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 492);
             this.panel1.TabIndex = 21;
@@ -390,7 +390,8 @@
             this.placeholder.AutoSize = true;
             this.placeholder.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.placeholder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.placeholder.Location = new System.Drawing.Point(133, 222);
+            this.placeholder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.placeholder.Location = new System.Drawing.Point(173, 235);
             this.placeholder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.placeholder.Name = "placeholder";
             this.placeholder.Size = new System.Drawing.Size(464, 46);
@@ -405,7 +406,7 @@
             this.listView2.Cursor = System.Windows.Forms.Cursors.Default;
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(451, 108);
-            this.listView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView2.Margin = new System.Windows.Forms.Padding(4);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(1427, 705);
             this.listView2.TabIndex = 22;
@@ -469,7 +470,7 @@
             this.listView4.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.listView4.HideSelection = false;
             this.listView4.Location = new System.Drawing.Point(-27, -41);
-            this.listView4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView4.Margin = new System.Windows.Forms.Padding(4);
             this.listView4.Name = "listView4";
             this.listView4.Size = new System.Drawing.Size(1904, 154);
             this.listView4.TabIndex = 27;
@@ -479,7 +480,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Location = new System.Drawing.Point(493, 203);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(813, 505);
             this.panel2.TabIndex = 28;
@@ -487,7 +488,7 @@
             // panel3
             // 
             this.panel3.Location = new System.Drawing.Point(0, 107);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1880, 4);
             this.panel3.TabIndex = 29;
@@ -495,7 +496,7 @@
             // panel4
             // 
             this.panel4.Location = new System.Drawing.Point(453, 108);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(4, 693);
             this.panel4.TabIndex = 30;
@@ -505,7 +506,7 @@
             this.panel5.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel5.Controls.Add(this.label10);
             this.panel5.Location = new System.Drawing.Point(-1, 801);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1881, 69);
             this.panel5.TabIndex = 31;
@@ -514,8 +515,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1876, 863);
+            this.ClientSize = new System.Drawing.Size(1857, 863);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -549,10 +552,9 @@
             this.Controls.Add(this.listView4);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.ForeColor = System.Drawing.SystemColors.Control;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximizeBox = false;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Treasure Hunt";
             this.Load += new System.EventHandler(this.Form1_Load);
