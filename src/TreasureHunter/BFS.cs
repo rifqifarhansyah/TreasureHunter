@@ -73,47 +73,47 @@ namespace TreasureHunterAlgo
                     {
                         this.curNode = tempNode;
                         this.discovered.Add(tempNode);
-                        if (this.m.Content[curNode.I][curNode.J] == "T")
+                        if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
                         {
                             this.curNode.TreasureFound++;
                         }
+                        Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
+                        Node rightNode = new Node(curNode.I, curNode.J + 1, curNode);
+                        Node bottomNode = new Node(curNode.I + 1, curNode.J, curNode);
+                        Node leftNode = new Node(curNode.I, curNode.J - 1, curNode);
                         if (this.m.isIdxEff(curNode.I - 1, curNode.J))
                         {
-                            if (this.m.Content[curNode.I - 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I - 1, curNode.J))
+                            if (this.m.Content[curNode.I - 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I - 1, curNode.J) && !isDiscovered(upperNode, discovered))
                             {
-                                Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
                                 liveNode.Enqueue(upperNode);
                             }
                         }
                         if (this.m.isIdxEff(curNode.I, curNode.J + 1))
                         {
-                            if (this.m.Content[curNode.I][curNode.J + 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J + 1))
+                            if (this.m.Content[curNode.I][curNode.J + 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J + 1) && !isDiscovered(rightNode, discovered))
                             {
-                                Node upperNode = new Node(curNode.I, curNode.J + 1, curNode);
-                                liveNode.Enqueue(upperNode);
+                                liveNode.Enqueue(rightNode);
                             }
                         }
                         if (this.m.isIdxEff(curNode.I + 1, curNode.J))
                         {
-                            if (this.m.Content[curNode.I + 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I + 1, curNode.J))
+                            if (this.m.Content[curNode.I + 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I + 1, curNode.J) && !isDiscovered(bottomNode, discovered))
                             {
-                                Node upperNode = new Node(curNode.I + 1, curNode.J, curNode);
-                                liveNode.Enqueue(upperNode);
+                                liveNode.Enqueue(bottomNode);
                             }
                         }
                         if (this.m.isIdxEff(curNode.I, curNode.J - 1))
                         {
-                            if (this.m.Content[curNode.I][curNode.J - 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J - 1))
+                            if (this.m.Content[curNode.I][curNode.J - 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J - 1) && !isDiscovered(leftNode, discovered))
                             {
-                                Node upperNode = new Node(curNode.I, curNode.J - 1, curNode);
-                                liveNode.Enqueue(upperNode);
+                                liveNode.Enqueue(leftNode);
                             }
                         }
                     }
                 }
                 else
                 {
-                    curNode = new Node(curNode.I, curNode.J);
+                    curNode = new Node(curNode.I, curNode.J, curNode);
                     discovered = new List<Node> { curNode };
                     liveNode = new Queue<Node>();
                     if (this.m.isIdxEff(curNode.I - 1, curNode.J))
