@@ -76,7 +76,11 @@ namespace TreasureHunterAlgo
                         this.Discovered.Add(tempNode);
                         if (this.m.Content[curNode.I][curNode.J] == "T")
                         {
-                            this.curNode.TreasureFound++;
+                            if (!curNode.hasInPath(curNode.I, curNode.J))
+                            {
+                                this.curNode.TreasureFound++;
+                            }
+                            
                         }
                         if (this.curNode.TreasureFound == this.m.TreasureCount)
                         {
@@ -110,7 +114,7 @@ namespace TreasureHunterAlgo
                 }
                 else
                 {
-                    CurNode = new Node(curNode.I, curNode.J,curNode,curNode.TreasureFound);
+                    CurNode = new Node(curNode.I, curNode.J,curNode);
                     Node tempCureNode = new Node(curNode.I, curNode.J);
                     discovered = new List<Node> { tempCureNode };
                     liveNode = new Stack<Node>();
