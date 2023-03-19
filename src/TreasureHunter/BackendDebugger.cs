@@ -10,7 +10,7 @@ namespace BackendDebugger {
     {
         public static void Main(string[] args)
         {
-            Maze m = new Maze("D:\\ITB\\Semester 4\\Strategi Algoritma\\Tubes2_13521099\\test\\test1.txt");
+            Maze m = new Maze("D:\\Kuliah\\Semester 4\\STIMA\\TUBES 2\\Tubes2_dicarryVieridanZaki\\test\\test.txt");
             //BFS bFS = new BFS(m);
             //bFS.doAction();
             //Node solutionNode = bFS.CurNode;

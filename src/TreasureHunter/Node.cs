@@ -28,6 +28,25 @@ namespace TreasureHunterAlgo
             path = new List<(int i, int j)>();
             treasureFound = 0;
         }
+        public Node(int i,int j,int cntTreasure)
+        {
+            this.i = i;
+            this.j = j;
+            this.treasureFound = cntTreasure;
+        }
+        public Node(int i, int j, Node other,int cntTreasure)
+        {
+            this.i = i;
+            this.j = j;
+            this.treasureFound=cntTreasure;
+            this.path = new List<(int i, int j)>();
+            foreach (var cell in other.Path)
+            {
+                this.path.Add(cell);
+            }
+            this.path.Add((other.I, other.J));
+            this.treasureFound = other.treasureFound;
+        }
         public Node(int i, int j, Node other)
         {
             this.i = i;
