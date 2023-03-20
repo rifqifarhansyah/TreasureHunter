@@ -7,6 +7,7 @@ using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Forms.VisualStyles;
 using TreasureHunterAlgo;
+using System.Drawing;
 
 namespace TreasureHunter
 {
@@ -39,13 +40,10 @@ namespace TreasureHunter
             listView1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#010101");
             listView2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#010101");
 
-            panel1.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
-            panel2.BackColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
 
             panel3.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
             panel4.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
             panel5.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
-            placeholder.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
 
             label7.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
         }
@@ -93,18 +91,43 @@ namespace TreasureHunter
         }
         private void visualize_Click(object sender, EventArgs e)
         {
+            string path = filePath.Text + "\\" + FileName.Text;
+            Maze m = new Maze(path);
+            int cellSize;
+            int heightSize = dataGridView1.Size.Height / m.Length;
+            int widthSize = dataGridView1.Size.Width / m.Width;
+            if (heightSize < widthSize)
+            {
+                cellSize = heightSize;
+            }
+            else
+            {
+                cellSize = widthSize;
+            }
+            dataGridView1.ColumnCount = m.Length;
+            dataGridView1.RowCount = m.Width;
+            int rowNum = 0, colNum;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                colNum = 0;
+                foreach(DataGridViewCell column in row.Cells)
+                {
+                    column.Value = m.Content[rowNum][colNum];
+                    colNum++;
+                }
+                rowNum++;
+            }
+            dataGridView1.RowTemplate.Height = cellSize;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.Width = cellSize;
+            }
             if (!this.BFS.Checked && !this.DFS.Checked)
             {
-                this.placeholder.Text = "Please choose an algorithm to implement!";
             }
             else if (this.BFS.Checked)
             {
-                this.placeholder.Text = "";
-                string path = filePath.Text + "\\" + FileName.Text;
-                Maze m = new Maze(path);
-                dataGridView1.ColumnCount = m.Length;
-                dataGridView1.RowCount = m.Width;
-                dataGridView1.
             }
             else
             {
@@ -132,6 +155,20 @@ namespace TreasureHunter
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        public void change_Color(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

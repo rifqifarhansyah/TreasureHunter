@@ -55,6 +55,17 @@ namespace TreasureHunterAlgo
             this.path.Add((other.I, other.J));
             this.treasureFound = other.treasureFound;
         }
+        public Node(int i, int j, List<(int i, int j)> path, List<string> route, int treasureFound) : this(i, j, path)
+        {
+            this.route = route;
+            this.treasureFound = treasureFound;
+            I = i;
+            J = j;
+            Path = path;
+            TreasureFound = treasureFound;
+            Route = route;
+        }
+
         public Node(int i, int j, List<(int i, int j)> path)
         {
             this.i = i;

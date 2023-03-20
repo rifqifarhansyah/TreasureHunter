@@ -53,20 +53,16 @@
             this.filePath = new System.Windows.Forms.Label();
             this.time = new System.Windows.Forms.Label();
             this.elapsedTime = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.placeholder = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
             this.curTime = new System.Windows.Forms.Label();
             this.curNodes = new System.Windows.Forms.Label();
             this.curSteps = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.listView4 = new System.Windows.Forms.ListView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -351,6 +347,7 @@
             this.filePath.Name = "filePath";
             this.filePath.Size = new System.Drawing.Size(0, 26);
             this.filePath.TabIndex = 18;
+            this.filePath.Visible = false;
             this.filePath.Click += new System.EventHandler(this.label_Click);
             // 
             // time
@@ -376,31 +373,6 @@
             this.elapsedTime.Name = "elapsedTime";
             this.elapsedTime.Size = new System.Drawing.Size(0, 26);
             this.elapsedTime.TabIndex = 20;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.placeholder);
-            this.panel1.Location = new System.Drawing.Point(500, 209);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 492);
-            this.panel1.TabIndex = 21;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.label_Click);
-            // 
-            // placeholder
-            // 
-            this.placeholder.AutoSize = true;
-            this.placeholder.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.placeholder.Location = new System.Drawing.Point(173, 235);
-            this.placeholder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.placeholder.Name = "placeholder";
-            this.placeholder.Size = new System.Drawing.Size(464, 46);
-            this.placeholder.TabIndex = 27;
-            this.placeholder.Text = "Path will be shown here";
-            this.placeholder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.placeholder.Click += new System.EventHandler(this.label_Click);
             // 
             // listView2
             // 
@@ -479,16 +451,6 @@
             this.listView4.TabIndex = 27;
             this.listView4.UseCompatibleStateImageBehavior = false;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Location = new System.Drawing.Point(493, 203);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(813, 505);
-            this.panel2.TabIndex = 28;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
             // panel3
             // 
             this.panel3.Location = new System.Drawing.Point(0, 107);
@@ -517,14 +479,17 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "Maze Grids";
+            this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.Location = new System.Drawing.Point(494, 203);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 492);
-            this.dataGridView1.TabIndex = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(789, 478);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // Form1
             // 
@@ -534,11 +499,10 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1857, 863);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.curTime);
             this.Controls.Add(this.curNodes);
             this.Controls.Add(this.curSteps);
@@ -573,8 +537,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Treasure Hunt";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -609,15 +571,12 @@
         private System.Windows.Forms.Label filePath;
         private System.Windows.Forms.Label time;
         private System.Windows.Forms.Label elapsedTime;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label curTime;
         private System.Windows.Forms.Label curNodes;
         private System.Windows.Forms.Label curSteps;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label placeholder;
         private System.Windows.Forms.ListView listView4;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
