@@ -29,18 +29,18 @@ namespace TreasureHunter
             FileName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
 
             StartingFolder.BackColor = System.Drawing.ColorTranslator.FromHtml("#242629");
-            StartingFolder.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
+            StartingFolder.ForeColor = System.Drawing.ColorTranslator.FromHtml("#C72C41");
 
             label10.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
 
-            SearchFile.BackColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
-            Visualize.BackColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
+            SearchFile.BackColor = System.Drawing.ColorTranslator.FromHtml("#C72C41");
+            Visualize.BackColor = System.Drawing.ColorTranslator.FromHtml("#C72C41");
 
             listView1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#010101");
             listView2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#010101");
 
             panel1.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
-            panel2.BackColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
+            panel2.BackColor = System.Drawing.ColorTranslator.FromHtml("#C72C41");
 
             panel3.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
             panel4.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
@@ -104,7 +104,6 @@ namespace TreasureHunter
                 Maze m = new Maze(path);
                 dataGridView1.ColumnCount = m.Length;
                 dataGridView1.RowCount = m.Width;
-                dataGridView1.
             }
             else
             {
