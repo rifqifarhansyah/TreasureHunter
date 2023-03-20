@@ -65,8 +65,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -173,7 +175,7 @@
             this.Visualize.TabIndex = 32;
             this.Visualize.Text = "Visualize";
             this.Visualize.UseVisualStyleBackColor = false;
-            this.Visualize.Click += new System.EventHandler(this.label_Click);
+            this.Visualize.Click += new System.EventHandler(this.visualize_Click);
             // 
             // label4
             // 
@@ -195,7 +197,7 @@
             this.FileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FileName.ForeColor = System.Drawing.Color.LightGray;
             this.FileName.Location = new System.Drawing.Point(76, 249);
-            this.FileName.Margin = new System.Windows.Forms.Padding();
+            this.FileName.Margin = new System.Windows.Forms.Padding(0);
             this.FileName.Multiline = true;
             this.FileName.Name = "FileName";
             this.FileName.Size = new System.Drawing.Size(259, 34);
@@ -377,6 +379,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.placeholder);
             this.panel1.Location = new System.Drawing.Point(500, 209);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -390,13 +393,13 @@
             this.placeholder.AutoSize = true;
             this.placeholder.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.placeholder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.placeholder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.placeholder.Location = new System.Drawing.Point(173, 235);
             this.placeholder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.placeholder.Name = "placeholder";
             this.placeholder.Size = new System.Drawing.Size(464, 46);
             this.placeholder.TabIndex = 27;
             this.placeholder.Text = "Path will be shown here";
+            this.placeholder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.placeholder.Click += new System.EventHandler(this.label_Click);
             // 
             // listView2
@@ -484,6 +487,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(813, 505);
             this.panel2.TabIndex = 28;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel3
             // 
@@ -510,6 +514,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1881, 69);
             this.panel5.TabIndex = 31;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "Maze Grids";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(800, 492);
+            this.dataGridView1.TabIndex = 28;
             // 
             // Form1
             // 
@@ -562,6 +577,7 @@
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -605,6 +621,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

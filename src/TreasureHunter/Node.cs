@@ -12,6 +12,7 @@ namespace TreasureHunterAlgo
         private int i;
         private int j;
         private List<(int i, int j)> path;
+        private List<string> route;
         private int treasureFound;
 
         public Node()
@@ -19,6 +20,7 @@ namespace TreasureHunterAlgo
             i = 0;
             j = 0;
             path = new List<(int i, int j)>();
+            route = new List<string>();
             treasureFound = 0;
         }
         public Node(int i, int j)
@@ -26,31 +28,25 @@ namespace TreasureHunterAlgo
             this.i = i;
             this.j = j;
             path = new List<(int i, int j)>();
+            route = new List<string>();
             treasureFound = 0;
-        }
-        public Node(int i,int j,int cntTreasure)
-        {
-            this.i = i;
-            this.j = j;
-            this.treasureFound = cntTreasure;
-        }
-        public Node(int i, int j, Node other,int cntTreasure)
-        {
-            this.i = i;
-            this.j = j;
-            this.treasureFound=cntTreasure;
-            this.path = new List<(int i, int j)>();
-            foreach (var cell in other.Path)
-            {
-                this.path.Add(cell);
-            }
-            this.path.Add((other.I, other.J));
-            //this.treasureFound = other.treasureFound;
         }
         public Node(int i, int j, Node other)
         {
             this.i = i;
             this.j = j;
+            route = new List<string>();
+            foreach (var item in other.Route)
+            {
+                this.route.Add(item);
+            }
+            int iDiff = this.i - other.i;
+            int jDiff = this.j - other.j;
+            if (iDiff == -1 && jDiff == 0) { this.route.Add("U"); }
+            else if (iDiff == 0 && jDiff == 1) { this.route.Add("R"); }
+            else if (iDiff == 1 && jDiff == 0) { this.route.Add("D"); }
+            else if (iDiff == 0 && jDiff == -1) { this.route.Add("L"); }
+            else if (iDiff == 0 && jDiff == 0) { this.route.Add("S"); }
             this.path = new List<(int i, int j)>();
             foreach (var cell in other.Path)
             {
@@ -69,6 +65,7 @@ namespace TreasureHunterAlgo
         public int J { get { return j; } set { j = value; } }
         public List<(int i, int j)> Path { get { return path; } set { path = value; } }
         public int TreasureFound { get {  return treasureFound; } set {  treasureFound = value; } }
+        public List<string> Route { get { return route; } set { route = value; } }
         public bool hasInPath(int i, int j)
         {
             foreach (var coor in path)
@@ -79,6 +76,18 @@ namespace TreasureHunterAlgo
                 }
             }
             return false;
+        }
+
+        public bool isBackTrack(int i, int j)
+        {
+            if (this.Path.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return this.Path[this.Path.Count - 1] == (i, j);
+            }
         }
     }
 }

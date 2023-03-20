@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Windows.Forms.VisualStyles;
+using TreasureHunterAlgo;
 
 namespace TreasureHunter
 {
@@ -95,7 +97,19 @@ namespace TreasureHunter
             {
                 this.placeholder.Text = "Please choose an algorithm to implement!";
             }
-            //else if (this.BFS.Che)
+            else if (this.BFS.Checked)
+            {
+                this.placeholder.Text = "";
+                string path = filePath.Text + "\\" + FileName.Text;
+                Maze m = new Maze(path);
+                dataGridView1.ColumnCount = m.Length;
+                dataGridView1.RowCount = m.Width;
+                dataGridView1.
+            }
+            else
+            {
+
+            }
         }
         private void button1_Click(object sender, System.EventArgs e)
         {
@@ -113,6 +127,11 @@ namespace TreasureHunter
         }
 
         private void label_Click(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
