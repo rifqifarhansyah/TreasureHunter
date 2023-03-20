@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 T T
 K X
+=======
+K T
+>>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
 T X
