@@ -53,20 +53,27 @@
             this.filePath = new System.Windows.Forms.Label();
             this.time = new System.Windows.Forms.Label();
             this.elapsedTime = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.placeholder = new System.Windows.Forms.Label();
+=======
+>>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
             this.listView2 = new System.Windows.Forms.ListView();
             this.curTime = new System.Windows.Forms.Label();
             this.curNodes = new System.Windows.Forms.Label();
             this.curSteps = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.listView4 = new System.Windows.Forms.ListView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.panel1.SuspendLayout();
+=======
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel5.SuspendLayout();
+>>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -351,6 +358,7 @@
             this.filePath.Name = "filePath";
             this.filePath.Size = new System.Drawing.Size(0, 26);
             this.filePath.TabIndex = 18;
+            this.filePath.Visible = false;
             this.filePath.Click += new System.EventHandler(this.label_Click);
             // 
             // time
@@ -377,6 +385,7 @@
             this.elapsedTime.Size = new System.Drawing.Size(0, 26);
             this.elapsedTime.TabIndex = 20;
             // 
+<<<<<<< HEAD
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
@@ -414,6 +423,8 @@
             this.placeholder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.placeholder.Click += new System.EventHandler(this.label_Click);
             // 
+=======
+>>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
             // listView2
             // 
             this.listView2.BackColor = System.Drawing.SystemColors.WindowText;
@@ -491,16 +502,6 @@
             this.listView4.TabIndex = 27;
             this.listView4.UseCompatibleStateImageBehavior = false;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Location = new System.Drawing.Point(493, 203);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(813, 505);
-            this.panel2.TabIndex = 28;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
             // panel3
             // 
             this.panel3.Location = new System.Drawing.Point(0, 107);
@@ -527,6 +528,23 @@
             this.panel5.Size = new System.Drawing.Size(1881, 69);
             this.panel5.TabIndex = 31;
             // 
+<<<<<<< HEAD
+=======
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.Location = new System.Drawing.Point(494, 203);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(789, 478);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+>>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -535,11 +553,10 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1857, 863);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.curTime);
             this.Controls.Add(this.curNodes);
             this.Controls.Add(this.curSteps);
@@ -574,9 +591,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Treasure Hunt";
             this.Load += new System.EventHandler(this.Form1_Load);
+<<<<<<< HEAD
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+=======
+>>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -610,15 +630,12 @@
         private System.Windows.Forms.Label filePath;
         private System.Windows.Forms.Label time;
         private System.Windows.Forms.Label elapsedTime;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label curTime;
         private System.Windows.Forms.Label curNodes;
         private System.Windows.Forms.Label curSteps;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label placeholder;
         private System.Windows.Forms.ListView listView4;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
