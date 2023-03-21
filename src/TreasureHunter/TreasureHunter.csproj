@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>TreasureHunter.Program</StartupObject>
+    <StartupObject>BackendDebugger.BackendDebugger</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

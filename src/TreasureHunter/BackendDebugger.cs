@@ -13,9 +13,9 @@ namespace BackendDebugger {
             Maze m = new Maze("D:\\ITB\\Semester 4\\Strategi Algoritma\\Tubes2_13521099\\test\\test8.txt");
             BFS bFS = new BFS(m);
             Node solutionNode = bFS.doAction();
-            // DFS dFS = new DFS(m);
-            // dFS.doAction();
-            // Node dFSSolution = dFS.CurNode;
+            //DFS dFS = new DFS(m);
+            //dFS.doAction();
+            //Node dFSSolution = dFS.CurNode;
         }
     }
 }

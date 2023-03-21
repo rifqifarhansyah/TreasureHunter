@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace TreasureHunterAlgo
@@ -13,6 +14,8 @@ namespace TreasureHunterAlgo
         public Maze M { get => m; set => m = value; }
         public Node CurNode { get => curNode; set => curNode = value; }
         public List<Node> Discovered { get => discovered; set => discovered = value; }
+
+        private List<(int i, int j)> discover;
         public Stack<Node> LiveNode { get => liveNode; set => liveNode = value; }
 
         public DFS()
@@ -28,6 +31,30 @@ namespace TreasureHunterAlgo
             CurNode = new Node(m.Start.i, m.Start.j);
             discovered = new List<Node> { curNode };
             liveNode = new Stack<Node>();
+            if (this.m.isIdxEff(curNode.I, curNode.J - 1))
+            {
+                if (this.m.Content[curNode.I][curNode.J - 1] != "X")
+                {
+                    Node upperNode = new Node(curNode.I, curNode.J - 1, curNode);
+                    liveNode.Push(upperNode);
+                }
+            }
+            if (this.m.isIdxEff(curNode.I + 1, curNode.J))
+            {
+                if (this.m.Content[curNode.I + 1][curNode.J] != "X")
+                {
+                    Node upperNode = new Node(curNode.I + 1, curNode.J, curNode);
+                    liveNode.Push(upperNode);
+                }
+            }
+            if (this.m.isIdxEff(curNode.I, curNode.J + 1))
+            {
+                if (this.m.Content[curNode.I][curNode.J + 1] != "X")
+                {
+                    Node upperNode = new Node(curNode.I, curNode.J + 1, curNode);
+                    liveNode.Push(upperNode);
+                }
+            }
             if (this.m.isIdxEff(curNode.I - 1, curNode.J))
             {
                 if (this.m.Content[curNode.I - 1][curNode.J] != "X")
@@ -36,37 +63,20 @@ namespace TreasureHunterAlgo
                     liveNode.Push(upperNode);
                 }
             }
-            else if (this.m.isIdxEff(curNode.I, curNode.J + 1))
-            {
-                if (this.m.Content[curNode.I][curNode.J + 1] != "X")
-                {
-                    Node upperNode = new Node(curNode.I, curNode.J + 1, curNode);
-                    liveNode.Push(upperNode);
-                }
-            }
-            else if (this.m.isIdxEff(curNode.I + 1, curNode.J))
-            {
-                if (this.m.Content[curNode.I + 1][curNode.J] != "X")
-                {
-                    Node upperNode = new Node(curNode.I + 1, curNode.J, curNode);
-                    liveNode.Push(upperNode);
-                }
-            }
-            else if (this.m.isIdxEff(curNode.I, curNode.J - 1))
-            {
-                if (this.m.Content[curNode.I][curNode.J - 1] != "X")
-                {
-                    Node upperNode = new Node(curNode.I, curNode.J - 1, curNode);
-                    liveNode.Push(upperNode);
-                }
-            }
+            
+            
+            
         }
+
+       
+
         public void doAction()
         {
             // Cell priority {up, right, down, left}
             //while (this.liveNode.Count != 0)
-            while(this.curNode.TreasureFound<this.m.TreasureCount)
+            while (this.curNode.TreasureFound < this.m.TreasureCount)
             {
+                
                 if (this.liveNode.Count != 0)
                 {
                     Node tempNode = liveNode.Peek();
@@ -80,7 +90,7 @@ namespace TreasureHunterAlgo
                             {
                                 this.curNode.TreasureFound++;
                             }
-                            
+
                         }
                         if (this.curNode.TreasureFound == this.m.TreasureCount)
                         {
@@ -114,7 +124,7 @@ namespace TreasureHunterAlgo
                 }
                 else
                 {
-                    CurNode = new Node(curNode.I, curNode.J,curNode);
+                    //CurNode = new Node(curNode.I, curNode.J, curNode);
                     Node tempCureNode = new Node(curNode.I, curNode.J);
                     discovered = new List<Node> { tempCureNode };
                     liveNode = new Stack<Node>();

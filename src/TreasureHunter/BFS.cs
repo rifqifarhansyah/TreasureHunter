@@ -19,8 +19,8 @@ namespace TreasureHunterAlgo
         {
             m = new Maze();
             curNode = new Node();
-            discovered = new List<Node> ();
-            liveNode =  new Queue<Node> ();
+            discovered = new List<Node>();
+            liveNode = new Queue<Node>();
         }
         public BFS(Maze m)
         {
@@ -206,6 +206,6 @@ namespace TreasureHunterAlgo
                 return a;
             }
         }
-        
+
     }
 }

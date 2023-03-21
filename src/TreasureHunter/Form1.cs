@@ -7,7 +7,7 @@ using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Forms.VisualStyles;
 using TreasureHunterAlgo;
-using System.Drawing;
+using System.Data;
 
 namespace TreasureHunter
 {
@@ -30,20 +30,23 @@ namespace TreasureHunter
             FileName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
 
             StartingFolder.BackColor = System.Drawing.ColorTranslator.FromHtml("#242629");
-            StartingFolder.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
+            StartingFolder.ForeColor = System.Drawing.ColorTranslator.FromHtml("#C72C41");
 
             label10.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
 
-            SearchFile.BackColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
-            Visualize.BackColor = System.Drawing.ColorTranslator.FromHtml("#7F5AF0");
+            SearchFile.BackColor = System.Drawing.ColorTranslator.FromHtml("#C72C41");
+            Visualize.BackColor = System.Drawing.ColorTranslator.FromHtml("#C72C41");
 
             listView1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#010101");
             listView2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#010101");
 
+            panel1.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
+            panel2.BackColor = System.Drawing.ColorTranslator.FromHtml("#C72C41");
 
             panel3.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
             panel4.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
             panel5.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
+            placeholder.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
 
             label7.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
         }
@@ -91,43 +94,17 @@ namespace TreasureHunter
         }
         private void visualize_Click(object sender, EventArgs e)
         {
-            string path = filePath.Text + "\\" + FileName.Text;
-            Maze m = new Maze(path);
-            int cellSize;
-            int heightSize = dataGridView1.Size.Height / m.Length;
-            int widthSize = dataGridView1.Size.Width / m.Width;
-            if (heightSize < widthSize)
-            {
-                cellSize = heightSize;
-            }
-            else
-            {
-                cellSize = widthSize;
-            }
-            dataGridView1.ColumnCount = m.Length;
-            dataGridView1.RowCount = m.Width;
-            int rowNum = 0, colNum;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                colNum = 0;
-                foreach(DataGridViewCell column in row.Cells)
-                {
-                    column.Value = m.Content[rowNum][colNum];
-                    colNum++;
-                }
-                rowNum++;
-            }
-            dataGridView1.RowTemplate.Height = cellSize;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
-            {
-                column.Width = cellSize;
-            }
             if (!this.BFS.Checked && !this.DFS.Checked)
             {
+                this.placeholder.Text = "Please choose an algorithm to implement!";
             }
             else if (this.BFS.Checked)
             {
+                this.placeholder.Text = "";
+                string path = filePath.Text + "\\" + FileName.Text;
+                Maze m = new Maze(path);
+                dataGridView1.ColumnCount = m.Length;
+                dataGridView1.RowCount = m.Width;
             }
             else
             {
@@ -158,19 +135,28 @@ namespace TreasureHunter
         {
 
         }
-        public void change_Color(object sender, EventArgs e)
-        {
-
-        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataTable table = new DataTable();
 
-        }
+            // add columns to datatable
+            table.Columns.Add("Id", typeof(int));
+            table.Columns.Add("First Name", typeof(string));
+            table.Columns.Add("Last Name", typeof(string));
+            table.Columns.Add("Age", typeof(int));
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
+            // add rows to datatable
+            table.Rows.Add(1, "First A", "Last A", 10);
+            table.Rows.Add(2, "First B", "Last B", 20);
+            table.Rows.Add(3, "First C", "Last C", 30);
+            table.Rows.Add(4, "First D", "Last D", 40);
+            table.Rows.Add(5, "First E", "Last E", 50);
+            table.Rows.Add(6, "First F", "Last F", 60);
+            table.Rows.Add(7, "First G", "Last G", 70);
+            table.Rows.Add(8, "First H", "Last H", 80);
 
+            dataGridView1.DataSource = table;
         }
     }
 }
