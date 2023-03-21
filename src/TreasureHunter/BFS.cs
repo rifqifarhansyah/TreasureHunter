@@ -32,6 +32,11 @@ namespace TreasureHunterAlgo
             get { return this.curNode; }
             set { this.curNode = value; }
         }
+        /// <summary>
+        /// Blah
+        /// </summary>
+        /// <param name="startI">The i index of the starting point</param>
+        /// <param name="startJ">The j index of the starting point</param>
         public void initializeStartingPoint(int startI, int startJ)
         {
             curNode = new Node(startI, startJ);
