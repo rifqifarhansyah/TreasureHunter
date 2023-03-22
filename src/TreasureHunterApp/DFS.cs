@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TreasureHunterAlgo;
+using System.Windows.Threading;
+using TreasureHunterApp;
 
 namespace TreasureHunterAlgo
 {
@@ -13,13 +14,14 @@ namespace TreasureHunterAlgo
         private Node curNode;
         private List<Node> discovered;
         private Stack<Node> liveNode;
+        private Stack<(int ix, int jx)> discover = new Stack<(int, int)>();
 
         public Maze M { get => m; set => m = value; }
         public Node CurNode { get => curNode; set => curNode = value; }
         public List<Node> Discovered { get => discovered; set => discovered = value; }
-
-        private List<(int i, int j)> discover;
         public Stack<Node> LiveNode { get => liveNode; set => liveNode = value; }
+
+
 
         public DFS()
         {
@@ -27,6 +29,7 @@ namespace TreasureHunterAlgo
             CurNode = new Node();
             discovered = new List<Node>();
             liveNode = new Stack<Node>();
+            //discover = new Stack<(int ix, int jx)>();
         }
         public DFS(Maze m)
         {
@@ -34,12 +37,15 @@ namespace TreasureHunterAlgo
             CurNode = new Node(m.Start.i, m.Start.j);
             discovered = new List<Node> { curNode };
             liveNode = new Stack<Node>();
+            //discover = new Stack<(int ix, int jx)>();
             if (this.m.isIdxEff(curNode.I, curNode.J - 1))
             {
                 if (this.m.Content[curNode.I][curNode.J - 1] != "X")
                 {
                     Node upperNode = new Node(curNode.I, curNode.J - 1, curNode);
                     liveNode.Push(upperNode);
+                    discover.Push((curNode.I, curNode.J - 1));
+                    //addTotalPath(curNode.I, curNode.J-1);
                 }
             }
             if (this.m.isIdxEff(curNode.I + 1, curNode.J))
@@ -48,6 +54,8 @@ namespace TreasureHunterAlgo
                 {
                     Node upperNode = new Node(curNode.I + 1, curNode.J, curNode);
                     liveNode.Push(upperNode);
+                    discover.Push((curNode.I + 1, curNode.J));
+                    //addTotalPath(curNode.I+1, curNode.J);
                 }
             }
             if (this.m.isIdxEff(curNode.I, curNode.J + 1))
@@ -56,6 +64,8 @@ namespace TreasureHunterAlgo
                 {
                     Node upperNode = new Node(curNode.I, curNode.J + 1, curNode);
                     liveNode.Push(upperNode);
+                    discover.Push((curNode.I, curNode.J + 1));
+                    //addTotalPath(curNode.I, curNode.J+1);
                 }
             }
             if (this.m.isIdxEff(curNode.I - 1, curNode.J))
@@ -64,101 +74,251 @@ namespace TreasureHunterAlgo
                 {
                     Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
                     liveNode.Push(upperNode);
+                    discover.Push((curNode.I - 1, curNode.J));
+                    //addTotalPath(curNode.I-1, curNode.J);
                 }
             }
         }
 
-        public void doAction()
+        public void pushNode()
         {
-            // Cell priority {up, right, down, left}
-            //while (this.liveNode.Count != 0)
-            while (this.curNode.TreasureFound < this.m.TreasureCount)
+            Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
+            Node rightNode = new Node(curNode.I, curNode.J + 1, curNode);
+            Node bottomNode = new Node(curNode.I + 1, curNode.J, curNode);
+            Node leftNode = new Node(curNode.I, curNode.J - 1, curNode);
+            int cnt = 0;
+            if (this.m.isIdxEff(curNode.I, curNode.J - 1) && this.m.Content[curNode.I][curNode.J - 1] != "X" && !curNode.isBackTrack(curNode.I, curNode.J - 1) && !BFS.isDiscovered(leftNode, this.discovered))
             {
+                liveNode.Push(leftNode);
+                discover.Push((curNode.I, curNode.J - 1));
+                cnt = 1;
+                //addTotalPath(curNode.I, curNode.J-1);
+            }
+            if (this.m.isIdxEff(curNode.I + 1, curNode.J) && this.m.Content[curNode.I + 1][curNode.J] != "X" && !curNode.isBackTrack(curNode.I + 1, curNode.J) && !BFS.isDiscovered(bottomNode, this.discovered))
+            {
+                liveNode.Push(bottomNode);
+                discover.Push((curNode.I + 1, curNode.J));
+                cnt = 1;
+                //addTotalPath(curNode.I+1, curNode.J);
+            }
+            if (this.m.isIdxEff(curNode.I, curNode.J + 1) && this.m.Content[curNode.I][curNode.J + 1] != "X" && !curNode.isBackTrack(curNode.I, curNode.J + 1) && !BFS.isDiscovered(rightNode, this.discovered))
+            {
+                liveNode.Push(rightNode);
+                discover.Push((curNode.I, curNode.J + 1));
+                cnt = 1;
+                //addTotalPath(curNode.I, curNode.J+1);
 
-                if (this.liveNode.Count != 0)
+            }
+            if (this.m.isIdxEff(curNode.I - 1, curNode.J) && this.m.Content[curNode.I - 1][curNode.J] != "X" && !curNode.isBackTrack(curNode.I - 1, curNode.J) && !BFS.isDiscovered(upperNode, this.discovered))
+            {
+                liveNode.Push(upperNode);
+                discover.Push((curNode.I - 1, curNode.J));
+                cnt = 1;
+                //addTotalPath(curNode.I-1, curNode.J);
+            }
+            if (cnt == 0)
+            {
+                discover.Pop();
+            }
+        }
+        public void initializeStartingPoint(int startI, int startJ)
+        {
+            curNode = new Node(startI, startJ);
+            discovered = new List<Node> { curNode };
+            liveNode = new Stack<Node>();
+            Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
+            Node rightNode = new Node(curNode.I, curNode.J + 1, curNode);
+            Node bottomNode = new Node(curNode.I + 1, curNode.J, curNode);
+            Node leftNode = new Node(curNode.I, curNode.J - 1, curNode);
+            if (this.m.isIdxEff(curNode.I, curNode.J - 1) && this.m.Content[curNode.I][curNode.J - 1] != "X")
+            {
+                liveNode.Push(leftNode);
+                discover.Push((curNode.I, curNode.J - 1));
+                //addTotalPath(curNode.I, curNode.J-1);
+            }
+            if (this.m.isIdxEff(curNode.I + 1, curNode.J) && this.m.Content[curNode.I + 1][curNode.J] != "X")
+            {
+                liveNode.Push(bottomNode);
+                discover.Push((curNode.I + 1, curNode.J));
+                //addTotalPath(curNode.I+1, curNode.J);
+            }
+            if (this.m.isIdxEff(curNode.I, curNode.J + 1) && this.m.Content[curNode.I][curNode.J + 1] != "X")
+            {
+                liveNode.Push(rightNode);
+                discover.Push((curNode.I, curNode.J + 1));
+                //addTotalPath(curNode.I, curNode.J+1);
+            }
+            if (this.m.isIdxEff(curNode.I - 1, curNode.J) && this.m.Content[curNode.I - 1][curNode.J] != "X")
+            {
+                liveNode.Push(upperNode);
+                discover.Push((curNode.I - 1, curNode.J));
+                //addTotalPath(curNode.I-1, curNode.J);
+            }
+        }
+
+        public bool discoverPoint(int i, int j)
+        {
+            foreach (var item in discover)
+            {
+                if (i == item.ix && j == item.jx) return true;
+            }
+            return false;
+        }
+
+        public static bool isDiscoveredFirst(Node n, List<Node> discoveredNodes)
+        {
+            foreach (var node in discoveredNodes)
+            {
+                if (node.I == n.I && node.J == n.J) return true;
+            }
+            return false;
+        }
+
+        public Node doAction(bool goBackHome,MainWindow mw)
+        {
+            Task.Run(async () =>
+            {
+                while (this.liveNode.Count != 0)
                 {
-                    Node tempNode = liveNode.Peek();
-                    if (!BFS.isDiscovered(tempNode, this.discovered))
+                    Node tempNode = liveNode.Pop();
+                    if (!BFS.isDiscovered(tempNode, this.discovered) && !isDiscoveredFirst(tempNode, this.discovered))
                     {
                         this.curNode = tempNode;
-                        this.Discovered.Add(tempNode);
-                        if (this.m.Content[curNode.I][curNode.J] == "T")
+                        this.discovered.Add(tempNode);
+                        mw.Dispatcher.Invoke(() => {
+                            colorCurrentNode(mw);
+                        });
+                        await Task.Delay(100);
+                        if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
                         {
-                            if (!curNode.hasInPath(curNode.I, curNode.J))
+                            mw.Dispatcher.Invoke(() => { clearNonPath(mw, curNode); });
+                            await Task.Delay(100);
+                            while (Discovered.Count != 0)
                             {
-                                this.curNode.TreasureFound++;
+                                Discovered.RemoveAt(Discovered.Count - 1);
                             }
+                            this.curNode.TreasureFound++;
                         }
-                        if (this.curNode.TreasureFound == this.m.TreasureCount)
+                        if (CurNode.TreasureFound == this.m.TreasureCount)
                         {
                             break;
                         }
-                        Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
-                        Node rightNode = new Node(curNode.I, curNode.J + 1, curNode);
-                        Node bottomNode = new Node(curNode.I + 1, curNode.J, curNode);
-                        Node leftNode = new Node(curNode.I, curNode.J - 1, curNode);
-                        if (this.m.isIdxEff(curNode.I, curNode.J - 1) && this.m.Content[curNode.I][curNode.J - 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J - 1) && !BFS.isDiscovered(leftNode, Discovered))
-                        {
-                            liveNode.Push(leftNode);
-                        }
-                        if (this.m.isIdxEff(curNode.I + 1, curNode.J) && this.m.Content[curNode.I + 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I + 1, curNode.J) && !BFS.isDiscovered(bottomNode, Discovered))
-                        {
-                            liveNode.Push(bottomNode);
-                        }
-                        if (this.m.isIdxEff(curNode.I, curNode.J + 1) && this.m.Content[curNode.I][curNode.J + 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J + 1) && !BFS.isDiscovered(rightNode, Discovered))
-                        {
-                            liveNode.Push(rightNode);
-                        }
-                        if (this.m.isIdxEff(curNode.I - 1, curNode.J) && this.m.Content[curNode.I - 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I - 1, curNode.J) && !BFS.isDiscovered(upperNode, Discovered))
-                        {
-                            liveNode.Push(upperNode);
-                        }
+                        pushNode();
+                        mw.Dispatcher.Invoke(() => {
+                            colorQueuedNode(mw);
+                        });
                     }
-                    else
+                    //discover.Pop();
+                }
+                Node resultNode;
+                if (CurNode.TreasureFound != this.m.TreasureCount)
+                {
+                    int treasureFound = 0;
+                    resultNode = null;
+                    this.initializeStartingPoint(m.Start.i, m.Start.j);
+                    mw.Dispatcher.Invoke(() => { colorCurrentNode(mw); colorQueuedNode(mw); });
+                    await Task.Delay(100);
+                    while (treasureFound != this.m.TreasureCount)
                     {
-                        LiveNode.Pop();
+                        while (true)
+                        {
+                            Node tempCurNode = liveNode.Pop();
+                            if (!BFS.isDiscovered(tempCurNode, discovered))
+                            {
+                                CurNode = tempCurNode;
+                                this.discovered.Add(tempCurNode);
+                                mw.Dispatcher.Invoke(() => { colorCurrentNode(mw); });
+                                await Task.Delay(100);
+                                if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
+                                {
+                                    mw.Dispatcher.Invoke(() => { clearNonPath(mw, curNode); });
+                                    await Task.Delay(100);
+                                    treasureFound++;
+                                    this.m.Content[CurNode.I][CurNode.J] = "R";
+                                    resultNode = BFS.append(resultNode, CurNode, m);
+                                    this.initializeStartingPoint(CurNode.I, CurNode.J);
+                                    while (Discovered.Count != 0)
+                                    {
+                                        Discovered.RemoveAt(Discovered.Count - 1);
+                                    }
+                                    mw.Dispatcher.Invoke(() => { colorCurrentNode(mw); colorQueuedNode(mw); });
+                                    await Task.Delay(100);
+                                    break;
+                                }
+                                pushNode();
+                                mw.Dispatcher.Invoke(() => { colorQueuedNode(mw); });
+                                await Task.Delay(100);
+                            }
+
+                        }
                     }
                 }
                 else
                 {
-                    //CurNode = new Node(curNode.I, curNode.J, curNode);
-                    Node tempCureNode = new Node(curNode.I, curNode.J);
-                    discovered = new List<Node> { tempCureNode };
-                    liveNode = new Stack<Node>();
-                    if (this.m.isIdxEff(curNode.I - 1, curNode.J))
+                    resultNode = new Node(curNode.I, curNode.J, curNode.Path, curNode.Route, curNode.TreasureFound);
+                }
+                if(goBackHome){
+                    this.initializeStartingPoint(resultNode.I, resultNode.J);
+                    mw.Dispatcher.Invoke(() => { colorCurrentNode(mw); colorQueuedNode(mw); });
+                    await Task.Delay(100);
+                    while (this.liveNode.Count != 0)
                     {
-                        if (this.m.Content[curNode.I - 1][curNode.J] != "X")
+                        Node tempNode = liveNode.Pop();
+
+                        if (this.m.Content[tempNode.I][tempNode.J] == "K")
                         {
-                            Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
-                            liveNode.Push(upperNode);
+                            mw.Dispatcher.Invoke(() => { clearNonPath(mw, curNode); });
+                            await Task.Delay(100);
+                            this.curNode = tempNode;
+                            this.discovered.Add(tempNode);
+                            break;
+                        }
+                        if (!BFS.isDiscovered(tempNode, this.discovered) && !curNode.hasInPath(curNode.I, curNode.J))
+                        {
+                            mw.Dispatcher.Invoke(() => { colorCurrentNode(mw); });
+                            await Task.Delay(100);
+                            this.curNode = tempNode;
+                            this.discovered.Add(tempNode);
+                            if (this.m.Content[curNode.I][curNode.J] == "K")
+                            {
+                                break;
+                            }
+                            pushNode();
+                            mw.Dispatcher.Invoke(() => { clearNonPath(mw, curNode); });
+                            await Task.Delay(100);
                         }
                     }
-                    else if (this.m.isIdxEff(curNode.I, curNode.J + 1))
+                    resultNode = BFS.append(resultNode, curNode, this.m);
+                }
+                return resultNode;
+                
+            });  
+            return null;          
+        }
+        public void colorQueuedNode(MainWindow mw)
+        {
+            foreach (var tile in liveNode)
+            {
+                mw.changeLightGray(tile.I, tile.J);
+            }
+        }
+        public void colorCurrentNode(MainWindow mw)
+        {
+            mw.changeGreen(CurNode.I, CurNode.J);
+        }
+        public void clearNonPath(MainWindow mw, Node nodePaths)
+        {
+            for (int i = 0; i < this.m.Width; i++)
+            {
+                for (int j = 0; j < this.m.Length; j++)
+                {
+                    if (!nodePaths.hasInPath(i, j) && i != nodePaths.I && j != nodePaths.J && this.m.Content[i][j] != "X")
                     {
-                        if (this.m.Content[curNode.I][curNode.J + 1] != "X")
-                        {
-                            Node upperNode = new Node(curNode.I, curNode.J + 1, curNode);
-                            liveNode.Push(upperNode);
-                        }
-                    }
-                    else if (this.m.isIdxEff(curNode.I + 1, curNode.J))
-                    {
-                        if (this.m.Content[curNode.I + 1][curNode.J] != "X")
-                        {
-                            Node upperNode = new Node(curNode.I + 1, curNode.J, curNode);
-                            liveNode.Push(upperNode);
-                        }
-                    }
-                    else if (this.m.isIdxEff(curNode.I, curNode.J - 1))
-                    {
-                        if (this.m.Content[curNode.I][curNode.J - 1] != "X")
-                        {
-                            Node upperNode = new Node(curNode.I, curNode.J - 1, curNode);
-                            liveNode.Push(upperNode);
-                        }
+                        mw.changeWhite(i, j);
                     }
                 }
             }
         }
+
     }
 }
