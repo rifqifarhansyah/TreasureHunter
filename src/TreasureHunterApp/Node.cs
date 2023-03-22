@@ -99,5 +99,21 @@ namespace TreasureHunterAlgo
                 return this.Path[this.Path.Count - 1] == (i, j);
             }
         }
+
+        public bool isSubsetOf(Node other)
+        {
+            List<(int i, int j)> thisPath = this.Path;
+            List<(int i, int j)> otherPath = other.Path;
+            thisPath.Add((this.I, this.J));
+            otherPath.Add((other.I, other.J));
+            for (int i = 0; i <= this.Path.Count; i++)
+            {
+                if (this.Path[i] != other.Path[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

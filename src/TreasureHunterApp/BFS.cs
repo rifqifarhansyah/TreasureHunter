@@ -87,37 +87,47 @@ namespace TreasureHunterAlgo
         {
             Task.Run(async () =>
             {
-                while (this.liveNode.Count != 0)
+                Node resultNode = null;
+                if (curNode != null)
                 {
-                    Node tempNode = liveNode.Dequeue();
-                    if (!isDiscovered(tempNode, this.discovered))
+                    resultNode = append(resultNode, curNode, this.m);
+                    initializeStartingPoint(m.Start.i, m.Start.j);
+                    mw.Dispatcher.Invoke(() => {
+                        colorCurrentNode(mw);
+                        colorQueuedNode(mw);
+                    });
+                    while (this.liveNode.Count != 0)
                     {
-                        this.curNode = tempNode;
-                        this.discovered.Add(tempNode);
-                        mw.Dispatcher.Invoke(() => {
-                            colorCurrentNode(mw);
-                        });
-                        await Task.Delay(100);
-                        if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
+                        Node tempNode = liveNode.Dequeue();
+                        if (!isDiscovered(tempNode, this.discovered))
                         {
-                            mw.Dispatcher.Invoke(() => { clearNonPath(mw, curNode); });
+                            this.curNode = tempNode;
+                            this.discovered.Add(tempNode);
+                            mw.Dispatcher.Invoke(() => {
+                                colorCurrentNode(mw);
+                            });
                             await Task.Delay(100);
-                            this.curNode.TreasureFound++;
+                            if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
+                            {
+                                mw.Dispatcher.Invoke(() => { clearNonPath(mw, resultNode); });
+                                await Task.Delay(100);
+                                this.curNode.TreasureFound++;
+                            }
+                            if (CurNode.TreasureFound == this.m.TreasureCount)
+                            {
+                                break;
+                            }
+                            enqueueValidNode();
+                            mw.Dispatcher.Invoke(() => {
+                                colorQueuedNode(mw);
+                            });
+                            await Task.Delay(100);
+                    
                         }
-                        if (CurNode.TreasureFound == this.m.TreasureCount)
-                        {
-                            break;
-                        }
-                        enqueueValidNode();
-                        mw.Dispatcher.Invoke(() => {
-                            colorQueuedNode(mw);
-                        });
-                        await Task.Delay(100);
-
                     }
+                    
                 }
-                Node resultNode;
-                if (CurNode.TreasureFound != this.m.TreasureCount)
+                else
                 {
                     int treasureFound = 0;
                     resultNode = null;
@@ -137,14 +147,12 @@ namespace TreasureHunterAlgo
                                 await Task.Delay(100);
                                 if (this.m.Content[CurNode.I][CurNode.J] == "T")
                                 {
-                                    mw.Dispatcher.Invoke(() => { clearNonPath(mw, curNode); });
-                                    await Task.Delay(100);
                                     treasureFound++;
                                     this.m.Content[CurNode.I][CurNode.J] = "R";
                                     resultNode = append(resultNode, CurNode, m);
-                                    this.initializeStartingPoint(CurNode.I, CurNode.J);
-                                    mw.Dispatcher.Invoke(() => { colorCurrentNode(mw); colorQueuedNode(mw); });
+                                    mw.Dispatcher.Invoke(() => { colorCurrentNode(mw); clearNonPath(mw, resultNode); });
                                     await Task.Delay(100);
+                                    this.initializeStartingPoint(CurNode.I, CurNode.J);
                                     break;
                                 }
                                 enqueueValidNode();
@@ -153,11 +161,16 @@ namespace TreasureHunterAlgo
                             }
                         }
                     }
+                    mw.Dispatcher.Invoke(() => { clearNonPath(mw, resultNode); });
+                    await Task.Delay(100);
                 }
-                else
-                {
-                    resultNode = new Node(curNode.I, curNode.J, curNode.Path, curNode.Route, curNode.TreasureFound);
-                }
+                // if (CurNode.TreasureFound != this.m.TreasureCount)
+                // {
+                // }
+                // else
+                // {
+                //     resultNode = new Node(curNode.I, curNode.J, curNode.Path, curNode.Route, curNode.TreasureFound);
+                // }
                 if (goBackHome)
                 {
                     this.initializeStartingPoint(resultNode.I, resultNode.J);
@@ -174,7 +187,7 @@ namespace TreasureHunterAlgo
                             this.discovered.Add(tempNode);
                             if (this.m.Content[curNode.I][curNode.J] == "K")
                             {
-                                mw.Dispatcher.Invoke(() => { clearNonPath(mw, curNode); });
+                                mw.Dispatcher.Invoke(() => { clearNonPath(mw, resultNode); });
                                 await Task.Delay(100);
                                 break;
                             }
@@ -189,6 +202,31 @@ namespace TreasureHunterAlgo
             });
             return null;
 
+        }
+        public void getOneWay()
+        {
+            while (this.liveNode.Count != 0)
+            {
+                Node tempNode = liveNode.Dequeue();
+                if (!isDiscovered(tempNode, this.discovered))
+                {
+                    curNode = tempNode;
+                    this.discovered.Add(tempNode);
+                    if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
+                    {
+                        this.curNode.TreasureFound++;
+                    }
+                    if (CurNode.TreasureFound == this.m.TreasureCount)
+                    {
+                        break;
+                    }
+                    enqueueValidNode();
+                }
+            }
+            if (curNode.TreasureFound != this.m.TreasureCount)
+            {
+                curNode = null;
+            }
         }
 
         public static bool isDiscovered(Node n, List<Node> discoveredNodes)
@@ -248,13 +286,16 @@ namespace TreasureHunterAlgo
         }
         public void clearNonPath(MainWindow mw, Node nodePaths)
         {
-            for (int i = 0; i < this.m.Width; i++)
+            if (nodePaths != null)
             {
-                for (int j = 0; j < this.m.Length; j++)
+                for (int i = 0; i < this.m.Width; i++)
                 {
-                    if (!nodePaths.hasInPath(i, j) && i != nodePaths.I && j != nodePaths.J && this.m.Content[i][j] != "X")
+                    for (int j = 0; j < this.m.Length; j++)
                     {
-                        mw.changeWhite(i, j);
+                        if (!nodePaths.hasInPath(i, j) && i != nodePaths.I && j != nodePaths.J && this.m.Content[i][j] != "X")
+                        {
+                            mw.changeWhite(i, j);
+                        }
                     }
                 }
             }

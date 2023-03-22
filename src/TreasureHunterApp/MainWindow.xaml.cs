@@ -35,15 +35,6 @@ namespace TreasureHunterApp
         {
 
         }
-
-        private void initializeMaze(object sender, EventArgs e)
-        {
-            Window mainWindow = Application.Current.MainWindow;
-            double width = mainWindow.ActualWidth;
-            double height = mainWindow.ActualHeight;
-            
-        }
-
         private void visualizeButton_Click(object sender, RoutedEventArgs e)
         {
             mazeGrid.Children.Clear();
@@ -67,30 +58,28 @@ namespace TreasureHunterApp
                     if (this.m.Content[i][j] == "X")
                     {
                         brush = new SolidColorBrush(Colors.Black);
-                    } 
-                    else if (this.m.Content[i][j] == "T") 
-                    {
-                        brush = new SolidColorBrush(Colors.Gold);
-                    } 
-                    else if (this.m.Content[i][j] == "K")
-                    {
-                        brush = new SolidColorBrush(Colors.Red);
                     }
                     else
                     {
                         brush = new SolidColorBrush(Colors.White);
                     }
+                    if (this.m.Content[i][j] == "K" || this.m.Content[i][j] == "T")
+                    {
+                        if (this.m.Content[i][j] == "K")
+                        {
+                            cell.Text = "K";
+                        }
+                        else if (this.m.Content[i][j] == "T")
+                        {
+                            cell.Text = "T";
+                        }
+                    }
                     cell.Background = brush;
+                    mazeGrid.Children.Add(cell);
                     Grid.SetColumn(cell, j);
                     Grid.SetRow(cell, i);
-                    mazeGrid.Children.Add(cell);
                 }
             }
-            // TextBox element = mazeGrid.Children
-            //                     .Cast<TextBox>()
-            //                     .FirstOrDefault(ez => Grid.GetRow(ez) == 2 && Grid.GetColumn(ez) == 2);
-            // SolidColorBrush bruh = new SolidColorBrush(Colors.White);
-            // element.Background = bruh;
         }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
@@ -108,9 +97,10 @@ namespace TreasureHunterApp
             TextBox element = mazeGrid.Children
                                 .Cast<TextBox>()
                                 .FirstOrDefault(ez => Grid.GetRow(ez) == i && Grid.GetColumn(ez) == j);
-            SolidColorBrush gray = new SolidColorBrush(Colors.Gray);
             SolidColorBrush white = new SolidColorBrush(Colors.White);
-            if (element.Background == white)
+            SolidColorBrush gray = new SolidColorBrush(Colors.Gray);
+            bool isWhite = new SolidColorBrushComparer().Equals((SolidColorBrush)element.Background, white);
+            if (isWhite)
             {
                 element.Background = gray;
             }
@@ -121,10 +111,25 @@ namespace TreasureHunterApp
                                 .Cast<TextBox>()
                                 .FirstOrDefault(ez => Grid.GetRow(ez) == i && Grid.GetColumn(ez) == j);
             SolidColorBrush darkGreen = new SolidColorBrush(Colors.DarkGreen);
+            darkGreen.Color.Lighten(0.75);
             SolidColorBrush white = new SolidColorBrush(Colors.White);
-            if (element.Background.GetHashCode() == white.GetHashCode())
+            SolidColorBrush gray = new SolidColorBrush(Colors.Gray);
+            SolidColorBrush gold = new SolidColorBrush(Colors.Gold);
+            SolidColorBrush red = new SolidColorBrush(Colors.Red);
+            SolidColorBrush blue = new SolidColorBrush(Colors.Blue);
+            bool isGray = new SolidColorBrushComparer().Equals((SolidColorBrush)element.Background, gray);
+            bool isWhite = new SolidColorBrushComparer().Equals((SolidColorBrush)element.Background, white);
+            bool isGold = new SolidColorBrushComparer().Equals((SolidColorBrush)element.Background, gold);
+            bool isRed = new SolidColorBrushComparer().Equals((SolidColorBrush)element.Background, red);
+            if ((isGray || isWhite))
             {
                 element.Background = darkGreen;
+            } 
+            else
+            {
+                SolidColorBrush temp = ((SolidColorBrush)element.Background);
+                temp.Color = temp.Color.Darken(0.5);
+                element.Background = temp;
             }
         }
         public void changeWhite(int i, int j)
@@ -133,7 +138,21 @@ namespace TreasureHunterApp
                                 .Cast<TextBox>()
                                 .FirstOrDefault(ez => Grid.GetRow(ez) == i && Grid.GetColumn(ez) == j);
             SolidColorBrush white = new SolidColorBrush(Colors.White);
-            element.Background = white;
+            SolidColorBrush gray = new SolidColorBrush(Colors.Gray);
+            SolidColorBrush darkGreen = new SolidColorBrush(Colors.DarkGreen);
+            darkGreen.Color = darkGreen.Color.Lighten(0.75);
+            bool isGray = new SolidColorBrushComparer().Equals((SolidColorBrush)element.Background, gray);
+            bool isLightest = new SolidColorBrushComparer().Equals((SolidColorBrush)element.Background, darkGreen);
+            if (isGray || isLightest)
+            {
+                element.Background = white;
+            }
+            else
+            {
+                SolidColorBrush temp = ((SolidColorBrush)element.Background);
+                temp.Color = temp.Color.Lighten(0.75);
+                element.Background = temp;
+            }
         }
         private void fileButton_Click(object sender, RoutedEventArgs e)
         {
@@ -164,6 +183,7 @@ namespace TreasureHunterApp
             if (bfs_radio.IsChecked == true)
             {
                 BFS bFS = new BFS(this.m, this);
+                bFS.getOneWay();
                 Node solutionNode = bFS.doAction(tsp_check.IsChecked == true, this);
             }
         }
