@@ -40,13 +40,9 @@ namespace TreasureHunter
             listView1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#010101");
             listView2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#010101");
 
-            panel1.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
-            panel2.BackColor = System.Drawing.ColorTranslator.FromHtml("#C72C41");
-
             panel3.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
             panel4.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
             panel5.BackColor = System.Drawing.ColorTranslator.FromHtml("#16161A");
-            placeholder.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
 
             label7.ForeColor = System.Drawing.ColorTranslator.FromHtml("#94A1B2");
         }
@@ -96,11 +92,9 @@ namespace TreasureHunter
         {
             if (!this.BFS.Checked && !this.DFS.Checked)
             {
-                this.placeholder.Text = "Please choose an algorithm to implement!";
             }
             else if (this.BFS.Checked)
             {
-                this.placeholder.Text = "";
                 string path = filePath.Text + "\\" + FileName.Text;
                 Maze m = new Maze(path);
                 dataGridView1.ColumnCount = m.Length;

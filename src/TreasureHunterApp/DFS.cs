@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using TreasureHunterAlgo;
 
 namespace TreasureHunterAlgo
 {
@@ -62,7 +65,7 @@ namespace TreasureHunterAlgo
                     Node upperNode = new Node(curNode.I - 1, curNode.J, curNode);
                     liveNode.Push(upperNode);
                 }
-            }   
+            }
         }
 
         public void doAction()
@@ -71,7 +74,7 @@ namespace TreasureHunterAlgo
             //while (this.liveNode.Count != 0)
             while (this.curNode.TreasureFound < this.m.TreasureCount)
             {
-                
+
                 if (this.liveNode.Count != 0)
                 {
                     Node tempNode = liveNode.Peek();
@@ -85,7 +88,6 @@ namespace TreasureHunterAlgo
                             {
                                 this.curNode.TreasureFound++;
                             }
-
                         }
                         if (this.curNode.TreasureFound == this.m.TreasureCount)
                         {
@@ -158,6 +160,5 @@ namespace TreasureHunterAlgo
                 }
             }
         }
-
     }
 }

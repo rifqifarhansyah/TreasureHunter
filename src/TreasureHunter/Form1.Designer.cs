@@ -53,12 +53,6 @@
             this.filePath = new System.Windows.Forms.Label();
             this.time = new System.Windows.Forms.Label();
             this.elapsedTime = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.placeholder = new System.Windows.Forms.Label();
-=======
->>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
             this.listView2 = new System.Windows.Forms.ListView();
             this.curTime = new System.Windows.Forms.Label();
             this.curNodes = new System.Windows.Forms.Label();
@@ -68,12 +62,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
-            this.panel1.SuspendLayout();
-=======
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel5.SuspendLayout();
->>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -385,17 +375,6 @@
             this.elapsedTime.Size = new System.Drawing.Size(0, 26);
             this.elapsedTime.TabIndex = 20;
             // 
-<<<<<<< HEAD
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.placeholder);
-            this.panel1.Location = new System.Drawing.Point(500, 209);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 492);
-            this.panel1.TabIndex = 21;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.label_Click);
             // 
             // dataGridView1
             // 
@@ -408,23 +387,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 492);
             this.dataGridView1.TabIndex = 28;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // placeholder
-            // 
-            this.placeholder.AutoSize = true;
-            this.placeholder.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.placeholder.Location = new System.Drawing.Point(173, 235);
-            this.placeholder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.placeholder.Name = "placeholder";
-            this.placeholder.Size = new System.Drawing.Size(464, 46);
-            this.placeholder.TabIndex = 27;
-            this.placeholder.Text = "Path will be shown here";
-            this.placeholder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.placeholder.Click += new System.EventHandler(this.label_Click);
-            // 
-=======
->>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
             // listView2
             // 
             this.listView2.BackColor = System.Drawing.SystemColors.WindowText;
@@ -528,8 +490,6 @@
             this.panel5.Size = new System.Drawing.Size(1881, 69);
             this.panel5.TabIndex = 31;
             // 
-<<<<<<< HEAD
-=======
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
@@ -542,9 +502,8 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(789, 478);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.visualize_Click);
             // 
->>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -591,12 +550,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Treasure Hunt";
             this.Load += new System.EventHandler(this.Form1_Load);
-<<<<<<< HEAD
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-=======
->>>>>>> beaf34f9fd9ff4e1517624f4b376b0861edb51c4
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
