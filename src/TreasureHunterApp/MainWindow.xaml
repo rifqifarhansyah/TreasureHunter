@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TreasureHunterApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="735.6" Width="1280" ResizeMode="NoResize">
+        Title="TreasureHunter" Height="735.6" Width="1280" ResizeMode="NoResize" Icon="/icons8-treasure-chest-80.png">
     <Grid x:Name="mainWindowGrid" Background="#FF16151A">
         <Grid.RowDefinitions>
             <RowDefinition Height="63*"/>

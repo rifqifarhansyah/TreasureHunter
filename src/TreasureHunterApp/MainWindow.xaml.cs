@@ -111,11 +111,11 @@ namespace TreasureHunterApp
                             var image = new Image();
                             if (this.m.Content[i][j] == "K")
                             {
-                                image.Source = new BitmapImage(new Uri("D:\\ITB\\Semester 4\\Strategi Algoritma\\Tubes2_13521099\\img\\KrustyKrab.png", UriKind.RelativeOrAbsolute));
+                                image.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "..\\..\\..\\..\\..\\img\\KrustyKrab.png"));
                             }
                             else if (this.m.Content[i][j] == "T")
                             {
-                                image.Source = new BitmapImage(new Uri("D:\\ITB\\Semester 4\\Strategi Algoritma\\Tubes2_13521099\\img\\Treasure.png", UriKind.RelativeOrAbsolute));
+                                image.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "..\\..\\..\\..\\..\\img\\Treasure.png"));
                             }
                             imageGrid.Children.Add(image);
                             Grid.SetColumn(image, j);
