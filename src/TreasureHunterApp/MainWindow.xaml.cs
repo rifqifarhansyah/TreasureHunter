@@ -96,13 +96,17 @@ namespace TreasureHunterApp
                         SolidColorBrush brush;
                         if (this.m.Content[i][j] == "X")
                         {
-                            brush = new SolidColorBrush(Colors.Black);
+                            Color backBlack = (Color)ColorConverter.ConvertFromString("#FF16151A");
+                            brush = new SolidColorBrush(backBlack);
                         }
                         else
                         {
                             brush = new SolidColorBrush(Colors.White);
                         }
+                        Color backGrey = (Color)ColorConverter.ConvertFromString("#FF7A7776");
+                        SolidColorBrush border = new SolidColorBrush(backGrey);
                         cell.Background = brush;
+                        cell.BorderBrush = border;
                         mazeGrid.Children.Add(cell);
                         Grid.SetColumn(cell, j);
                         Grid.SetRow(cell, i);
@@ -154,13 +158,13 @@ namespace TreasureHunterApp
             TextBox element = mazeGrid.Children
                                 .Cast<TextBox>()
                                 .FirstOrDefault(ez => Grid.GetRow(ez) == i && Grid.GetColumn(ez) == j);
-            Color green1 = (Color)ColorConverter.ConvertFromString("#FFE7135D");
-            Color green2 = (Color)ColorConverter.ConvertFromString("#FF1D9BC9");
-            Color green3 = (Color)ColorConverter.ConvertFromString("#FFBF4D80");
-            Color green4 = (Color)ColorConverter.ConvertFromString("#FFD50A94");
-            Color green5 = (Color)ColorConverter.ConvertFromString("#FF7B5BED");
-            Color green6 = (Color)ColorConverter.ConvertFromString("#FF1B1464");
-            Color green7 = (Color)ColorConverter.ConvertFromString("#FF6D4C41");
+            Color green1 = (Color)ColorConverter.ConvertFromString("#FFCE64C0");
+            Color green2 = (Color)ColorConverter.ConvertFromString("#FFA63FBE");
+            Color green3 = (Color)ColorConverter.ConvertFromString("#FF8510B7");
+            Color green4 = (Color)ColorConverter.ConvertFromString("#FF6226F0");
+            Color green5 = (Color)ColorConverter.ConvertFromString("#FF333DE6");
+            Color green6 = (Color)ColorConverter.ConvertFromString("#FF0B00ED");
+            Color green7 = (Color)ColorConverter.ConvertFromString("#FF0710A0");
             SolidColorBrush greenBrush_1 = new SolidColorBrush(green1);
             SolidColorBrush greenBrush_2 = new SolidColorBrush(green2);
             SolidColorBrush greenBrush_3 = new SolidColorBrush(green3);
@@ -245,13 +249,13 @@ namespace TreasureHunterApp
             TextBox element = mazeGrid.Children
                                 .Cast<TextBox>()
                                 .FirstOrDefault(ez => Grid.GetRow(ez) == i && Grid.GetColumn(ez) == j);
-            Color green1 = (Color)ColorConverter.ConvertFromString("#FFE7135D");
-            Color green2 = (Color)ColorConverter.ConvertFromString("#FF1D9BC9");
-            Color green3 = (Color)ColorConverter.ConvertFromString("#FFBF4D80");
-            Color green4 = (Color)ColorConverter.ConvertFromString("#FFD50A94");
-            Color green5 = (Color)ColorConverter.ConvertFromString("#FF7B5BED");
-            Color green6 = (Color)ColorConverter.ConvertFromString("#FF1B1464");
-            Color green7 = (Color)ColorConverter.ConvertFromString("#FF6D4C41");
+            Color green1 = (Color)ColorConverter.ConvertFromString("#FFCE64C0");
+            Color green2 = (Color)ColorConverter.ConvertFromString("#FFA63FBE");
+            Color green3 = (Color)ColorConverter.ConvertFromString("#FF8510B7");
+            Color green4 = (Color)ColorConverter.ConvertFromString("#FF6226F0");
+            Color green5 = (Color)ColorConverter.ConvertFromString("#FF333DE6");
+            Color green6 = (Color)ColorConverter.ConvertFromString("#FF0B00ED");
+            Color green7 = (Color)ColorConverter.ConvertFromString("#FF0710A0");
             SolidColorBrush greenBrush_1 = new SolidColorBrush(green1);
             SolidColorBrush greenBrush_2 = new SolidColorBrush(green2);
             SolidColorBrush greenBrush_3 = new SolidColorBrush(green3);

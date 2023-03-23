@@ -18,7 +18,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Stroke="Black" Margin="10,10,10,10" Fill="#FF25262A" Grid.Row="1"/>
-        <Rectangle Stroke="Black" Margin="10,10,10,10" Fill="#FF25262A" Grid.Row="1" Grid.Column="1"/>
+        <Rectangle Stroke="Black" Margin="10,10,10,10" Fill="#FF25282A" Grid.Row="1" Grid.Column="1"/>
         <Rectangle Stroke="Black" Margin="10,10,10,10" Fill="#FF25262A" Grid.ColumnSpan="2"/>
         <TextBlock TextWrapping="Wrap" Text="Treasure Hunter" VerticalAlignment="Center" Height="86" Foreground="#FFEDE6E6" FontSize="56" Margin="84,0,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="420"/>
         <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="57" Foreground="#FFEDE6E6" FontSize="32" Margin="42,25,0,0" HorizontalAlignment="Left" Width="96" Grid.Row="1"><Run Text="Input"/><LineBreak/><Run/></TextBlock>
@@ -49,5 +49,19 @@
         </Grid>
         <Button x:Name="startingDir" Content="Starting Dir" HorizontalAlignment="Left" Margin="49,103,0,0" Grid.Row="1" VerticalAlignment="Top" Height="52" Width="119" BorderBrush="#FF7B5BED" Background="#FF25262A" Foreground="#FF7B5BED" FontSize="20" Click="startingDir_Click"/>
         <TextBox x:Name="textFileInputField" HorizontalAlignment="Left" Height="27" Margin="49,164,-4,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Background="White" Foreground="#FF7A7776" BorderBrush="#FFABABAB" FontSize="16" VerticalContentAlignment="Center" Padding="6,0,0,4" TextChanged="textFileInputField_TextChanged" Text="File name (.txt)"/>
+        <Rectangle Stroke="Black" Margin="10,10,10,10" Fill="#FF25262A" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Foreground="#FFEDE6E6" FontSize="20" Margin="36,21,0,0" HorizontalAlignment="Left" Width="72" Grid.Row="2" Text="Legend:"/>
+        <Rectangle HorizontalAlignment="Left" Height="31" Margin="144,0,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="33" Fill="#FF16151A"/>
+        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Foreground="#FFEDE6E6" FontSize="20" Margin="194,21,0,0" HorizontalAlignment="Left" Width="72" Grid.Row="2"><Run Text="Blocked"/><LineBreak/><Run/><LineBreak/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="31" Margin="303,0,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="33" Fill="#FFF9F8FF"/>
+        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Foreground="#FFEDE6E6" FontSize="20" Margin="10,21,0,0" HorizontalAlignment="Left" Width="118" Grid.Row="2" Grid.Column="1" Text="Discoverable"/>
+        <Rectangle HorizontalAlignment="Left" Height="31" Margin="163,0,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="33" Fill="#FFCE64C0" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="31" Margin="196,0,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="33" Fill="#FFA63FBE" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="31" Margin="229,0,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="33" Fill="#FF8510B7" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="31" Margin="262,0,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="33" Fill="#FF6226F0" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="31" Margin="295,0,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="33" Fill="#FF333DE6" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="31" Margin="328,0,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="33" Fill="#FF0B00ED" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="31" Margin="361,0,0,0" Grid.Row="2" Stroke="Black" VerticalAlignment="Center" Width="33" Fill="#FF0710A0" Grid.Column="1"/>
+        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Foreground="#FFEDE6E6" FontSize="20" Margin="422,21,0,0" HorizontalAlignment="Left" Width="118" Grid.Row="2" Grid.Column="1"><Run Text="Discovered"/><LineBreak/><Run/></TextBlock>
     </Grid>
 </Window>
