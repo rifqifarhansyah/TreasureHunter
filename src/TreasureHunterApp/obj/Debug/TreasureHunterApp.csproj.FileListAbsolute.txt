@@ -30,3 +30,19 @@ D:\Kuliah\Semester 4\STIMA\TUBES 2\terbaru2\Tubes2_dicarryVieridanZaki\src\Treas
 D:\Kuliah\Semester 4\STIMA\TUBES 2\terbaru2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.csproj.CoreCompileInputs.cache
 D:\Kuliah\Semester 4\STIMA\TUBES 2\terbaru2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.exe
 D:\Kuliah\Semester 4\STIMA\TUBES 2\terbaru2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.pdb
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Debug\TreasureHunterApp.exe.config
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Debug\TreasureHunterApp.exe
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Debug\TreasureHunterApp.pdb
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.csproj.AssemblyReference.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.csproj.SuggestedBindingRedirects.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\MainWindow.g.cs
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\App.g.cs
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp_MarkupCompile.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp_MarkupCompile.lref
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\MainWindow.baml
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.g.resources
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.Properties.Resources.resources
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.csproj.GenerateResource.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.csproj.CoreCompileInputs.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.exe
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.pdb

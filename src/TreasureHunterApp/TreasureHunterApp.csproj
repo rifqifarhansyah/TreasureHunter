@@ -108,5 +108,11 @@
   <ItemGroup>
     <Resource Include="KrustyKrab.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="treasurehuntericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8-treasure-chest-80.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
