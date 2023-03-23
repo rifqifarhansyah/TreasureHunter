@@ -60,7 +60,6 @@
     </ApplicationDefinition>
     <Compile Include="ColorExtension.cs" />
     <Compile Include="SolidColorBrushComparer.cs" />
-    <Compile Include="TextBoxExtensions.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="KrustyKrab.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

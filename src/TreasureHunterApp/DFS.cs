@@ -78,7 +78,7 @@ namespace TreasureHunterAlgo
                 if (this.liveNode.Count != 0)
                 {
                     Node tempNode = liveNode.Peek();
-                    if (!BFS.isDiscovered(tempNode, this.discovered))
+                    if (!BFS.IsDiscovered(tempNode, this.discovered))
                     {
                         this.curNode = tempNode;
                         this.Discovered.Add(tempNode);
@@ -97,19 +97,19 @@ namespace TreasureHunterAlgo
                         Node rightNode = new Node(curNode.I, curNode.J + 1, curNode);
                         Node bottomNode = new Node(curNode.I + 1, curNode.J, curNode);
                         Node leftNode = new Node(curNode.I, curNode.J - 1, curNode);
-                        if (this.m.isIdxEff(curNode.I, curNode.J - 1) && this.m.Content[curNode.I][curNode.J - 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J - 1) && !BFS.isDiscovered(leftNode, Discovered))
+                        if (this.m.isIdxEff(curNode.I, curNode.J - 1) && this.m.Content[curNode.I][curNode.J - 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J - 1) && !BFS.IsDiscovered(leftNode, Discovered))
                         {
                             liveNode.Push(leftNode);
                         }
-                        if (this.m.isIdxEff(curNode.I + 1, curNode.J) && this.m.Content[curNode.I + 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I + 1, curNode.J) && !BFS.isDiscovered(bottomNode, Discovered))
+                        if (this.m.isIdxEff(curNode.I + 1, curNode.J) && this.m.Content[curNode.I + 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I + 1, curNode.J) && !BFS.IsDiscovered(bottomNode, Discovered))
                         {
                             liveNode.Push(bottomNode);
                         }
-                        if (this.m.isIdxEff(curNode.I, curNode.J + 1) && this.m.Content[curNode.I][curNode.J + 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J + 1) && !BFS.isDiscovered(rightNode, Discovered))
+                        if (this.m.isIdxEff(curNode.I, curNode.J + 1) && this.m.Content[curNode.I][curNode.J + 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J + 1) && !BFS.IsDiscovered(rightNode, Discovered))
                         {
                             liveNode.Push(rightNode);
                         }
-                        if (this.m.isIdxEff(curNode.I - 1, curNode.J) && this.m.Content[curNode.I - 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I - 1, curNode.J) && !BFS.isDiscovered(upperNode, Discovered))
+                        if (this.m.isIdxEff(curNode.I - 1, curNode.J) && this.m.Content[curNode.I - 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I - 1, curNode.J) && !BFS.IsDiscovered(upperNode, Discovered))
                         {
                             liveNode.Push(upperNode);
                         }

@@ -14,6 +14,7 @@ namespace TreasureHunterAlgo
         private int length;
         private int width;
         private int treasureCount;
+        private bool valid;
         public Maze()
         {
             content = new List<List<string>>();
@@ -21,12 +22,14 @@ namespace TreasureHunterAlgo
             length = 0;
             width = 0;
             treasureCount = 0;
+            valid = false;
         }
         public Maze(string txtFile)
         {
             var lines = File.ReadAllLines(txtFile);
             content = new List<List<string>>();
             treasureCount = 0;
+            this.valid = true;
             foreach (var line in lines)
             {
                 string[] curLine = line.Split(' ');
@@ -36,6 +39,10 @@ namespace TreasureHunterAlgo
                     if (info == "T")
                     {
                         this.treasureCount++;
+                    }
+                    else if (info != "T" && info != "K" && info != "R" && info != "X")
+                    {
+                        this.valid = false;
                     }
                     characters.Add(info);
                 }
@@ -94,10 +101,31 @@ namespace TreasureHunterAlgo
             get { return treasureCount; }
             set { treasureCount = value; }
         }
+        public bool Valid
+        {
+            get { return valid; }
+            set { valid = value; }
+        }
 
         public bool isIdxEff(int i, int j)
         {
             return (i >= 0 && j >= 0 && i < this.width && j < this.length);
+        }
+
+        public int countWhiteTiles()
+        {
+            int count = 0;
+            foreach (var rows in this.Content)
+            {
+                foreach (var character in rows)
+                {
+                    if (character == "K" || character == "R" || character == "T")
+                    {
+                        count++;
+                    }
+                }
+            }
+            return count;
         }
     }
 }

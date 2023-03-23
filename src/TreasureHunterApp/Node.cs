@@ -102,18 +102,34 @@ namespace TreasureHunterAlgo
 
         public bool isSubsetOf(Node other)
         {
-            List<(int i, int j)> thisPath = this.Path;
-            List<(int i, int j)> otherPath = other.Path;
+            List<(int i, int j)> thisPath = this.Path.ConvertAll(x => x);
+            List<(int i, int j)> otherPath = other.Path.ConvertAll(x => x);
             thisPath.Add((this.I, this.J));
             otherPath.Add((other.I, other.J));
-            for (int i = 0; i <= this.Path.Count; i++)
+            for (int i = 0; i < thisPath.Count; i++)
             {
-                if (this.Path[i] != other.Path[i])
+                if (thisPath[i] != otherPath[i])
                 {
                     return false;
                 }
             }
             return true;
+        }
+        public int countTileOccurence(int i, int j)
+        {
+            int occ = 0;
+            foreach (var tile in this.Path)
+            {
+                if (tile == (i, j))
+                {
+                    occ++;
+                }
+            }
+            if (this.I == i && this.J == j)
+            {
+                occ++;
+            }
+            return occ;
         }
     }
 }
