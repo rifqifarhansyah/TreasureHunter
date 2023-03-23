@@ -18,6 +18,7 @@ using TreasureHunterAlgo;
 using System.ComponentModel.Design;
 using System.Windows.Threading;
 using System.Security.Policy;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace TreasureHunterApp
 {
@@ -27,6 +28,9 @@ namespace TreasureHunterApp
     public partial class MainWindow : Window
     {
         Maze m;
+        string txtFileName;
+        bool chooseFileWithDialog;
+        string startDir;
         public MainWindow()
         {
             InitializeComponent();
@@ -44,7 +48,34 @@ namespace TreasureHunterApp
             imageGrid.Children.Clear();
             imageGrid.RowDefinitions.Clear();
             imageGrid.ColumnDefinitions.Clear();
-            if (this.m.Valid)
+            if (!chooseFileWithDialog)
+            {
+                string curFilePath = startDir + "\\" + txtFileName;
+                if (System.IO.File.Exists(curFilePath))
+                {
+                    if (System.IO.Path.GetExtension(curFilePath) != ".txt")
+                    {
+                        this.fileName.Text = "Invalid extension";
+                    }
+                    else
+                    {
+                        m = new Maze(curFilePath);
+                        if (!this.m.Valid)
+                        {
+                            this.fileName.Text = "File content not valid";
+                        }
+                        else
+                        {
+                            this.fileName.Text = System.IO.Path.GetFileName(curFilePath);
+                        }
+                    }
+                }
+                else
+                {
+                    this.fileName.Text = "File doesn't exist";
+                }
+            }
+            if (this.m != null && this.m.Valid)
             {
                 for (int i = 0; i < this.m.Width; i++)
                 {
@@ -86,9 +117,9 @@ namespace TreasureHunterApp
                             {
                                 image.Source = new BitmapImage(new Uri("D:\\ITB\\Semester 4\\Strategi Algoritma\\Tubes2_13521099\\img\\Treasure.png", UriKind.RelativeOrAbsolute));
                             }
+                            imageGrid.Children.Add(image);
                             Grid.SetColumn(image, j);
                             Grid.SetRow(image, i);
-                            imageGrid.Children.Add(image);
                         }
                     }
                 }
@@ -123,13 +154,13 @@ namespace TreasureHunterApp
             TextBox element = mazeGrid.Children
                                 .Cast<TextBox>()
                                 .FirstOrDefault(ez => Grid.GetRow(ez) == i && Grid.GetColumn(ez) == j);
-            Color green1 = (Color)ColorConverter.ConvertFromString("#8B00FF");
-            Color green2 = (Color)ColorConverter.ConvertFromString("#7D26CD");
-            Color green3 = (Color)ColorConverter.ConvertFromString("#6600A6");
-            Color green4 = (Color)ColorConverter.ConvertFromString("#58088E");
-            Color green5 = (Color)ColorConverter.ConvertFromString("#4B0082");
-            Color green6 = (Color)ColorConverter.ConvertFromString("#3F007E");
-            Color green7 = (Color)ColorConverter.ConvertFromString("#330066");
+            Color green1 = (Color)ColorConverter.ConvertFromString("#FFE7135D");
+            Color green2 = (Color)ColorConverter.ConvertFromString("#FF1D9BC9");
+            Color green3 = (Color)ColorConverter.ConvertFromString("#FFBF4D80");
+            Color green4 = (Color)ColorConverter.ConvertFromString("#FFD50A94");
+            Color green5 = (Color)ColorConverter.ConvertFromString("#FF7B5BED");
+            Color green6 = (Color)ColorConverter.ConvertFromString("#FF1B1464");
+            Color green7 = (Color)ColorConverter.ConvertFromString("#FF6D4C41");
             SolidColorBrush greenBrush_1 = new SolidColorBrush(green1);
             SolidColorBrush greenBrush_2 = new SolidColorBrush(green2);
             SolidColorBrush greenBrush_3 = new SolidColorBrush(green3);
@@ -214,13 +245,13 @@ namespace TreasureHunterApp
             TextBox element = mazeGrid.Children
                                 .Cast<TextBox>()
                                 .FirstOrDefault(ez => Grid.GetRow(ez) == i && Grid.GetColumn(ez) == j);
-            Color green1 = (Color)ColorConverter.ConvertFromString("#8B00FF");
-            Color green2 = (Color)ColorConverter.ConvertFromString("#7D26CD");
-            Color green3 = (Color)ColorConverter.ConvertFromString("#6600A6");
-            Color green4 = (Color)ColorConverter.ConvertFromString("#58088E");
-            Color green5 = (Color)ColorConverter.ConvertFromString("#4B0082");
-            Color green6 = (Color)ColorConverter.ConvertFromString("#3F007E");
-            Color green7 = (Color)ColorConverter.ConvertFromString("#330066");
+            Color green1 = (Color)ColorConverter.ConvertFromString("#FFE7135D");
+            Color green2 = (Color)ColorConverter.ConvertFromString("#FF1D9BC9");
+            Color green3 = (Color)ColorConverter.ConvertFromString("#FFBF4D80");
+            Color green4 = (Color)ColorConverter.ConvertFromString("#FFD50A94");
+            Color green5 = (Color)ColorConverter.ConvertFromString("#FF7B5BED");
+            Color green6 = (Color)ColorConverter.ConvertFromString("#FF1B1464");
+            Color green7 = (Color)ColorConverter.ConvertFromString("#FF6D4C41");
             SolidColorBrush greenBrush_1 = new SolidColorBrush(green1);
             SolidColorBrush greenBrush_2 = new SolidColorBrush(green2);
             SolidColorBrush greenBrush_3 = new SolidColorBrush(green3);
@@ -265,21 +296,30 @@ namespace TreasureHunterApp
             if (openFileDialog.ShowDialog() == true)
             {
                 string filePath = openFileDialog.FileName;
-                if (System.IO.Path.GetExtension(filePath) != ".txt")
+                if (System.IO.File.Exists(filePath))
                 {
-                    MessageBox.Show("Please select a .txt file", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
-                {
-                    m = new Maze(filePath);
-                    if (!this.m.Valid)
+                    if (System.IO.Path.GetExtension(filePath) != ".txt")
                     {
-                        this.fileName.Text = "File content not valid";
+                        this.fileName.Text = "Invalid extension";
                     }
                     else
                     {
-                        this.fileName.Text = System.IO.Path.GetFileName(filePath);
+                        chooseFileWithDialog = true;
+                        m = new Maze(filePath);
+                        if (!this.m.Valid)
+                        {
+                            this.fileName.Text = "File content not valid";
+                        }
+                        else
+                        {
+                            this.fileName.Text = System.IO.Path.GetFileName(filePath);
+                        }
+               
                     }
+                }
+                else
+                {
+                    this.fileName.Text = "File does't exist";
                 }
             }
         }
@@ -296,6 +336,12 @@ namespace TreasureHunterApp
                 BFS bFS = new BFS(this.m, this);
                 bFS.GetOneWay();
                 Node solutionNode = bFS.DoAction(tsp_check.IsChecked == true, this, (int)this.searchSpeed.Value);
+            }
+            else if (dfs_radio.IsChecked == true) 
+            {
+                DFS dFS = new DFS(this.m, this);
+                dFS.GetOneWay();
+                Node solutionNode = dFS.doAction(tsp_check.IsChecked == true, this, (int)this.searchSpeed.Value);
             }
         }
 
@@ -318,6 +364,20 @@ namespace TreasureHunterApp
             {
                 this.delayValue.Text = ((int)this.searchSpeed.Value).ToString() + " ms";
             }
+        }
+
+        private void textFileInputField_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            this.txtFileName = textFileInputField.Text;
+            
+        }
+
+        private void startingDir_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.FolderBrowserDialog dirDialog = new System.Windows.Forms.FolderBrowserDialog();
+            dirDialog.ShowDialog();
+            startDir = dirDialog.SelectedPath;
+            chooseFileWithDialog = false;
         }
     }
 }

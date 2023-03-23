@@ -26,8 +26,6 @@ namespace TreasureHunterAlgo
         {
             this.m = m;
             this.InitializeStartingPoint(this.m.Start.i, this.m.Start.j);
-            ColorQueuedNode(mw);
-            ColorCurrentNode(mw);
         }
         public Node CurNode
         {
@@ -98,6 +96,7 @@ namespace TreasureHunterAlgo
                     resultNode = Append(resultNode, curNode, this.m);
                     InitializeStartingPoint(m.Start.i, m.Start.j);
                     mw.Dispatcher.Invoke(() => {
+                        ColorCurrentNode(mw);
                         ColorQueuedNode(mw);
                     });
                     await Task.Delay(delayDuration);
@@ -149,7 +148,8 @@ namespace TreasureHunterAlgo
                     int treasureFound = 0;
                     resultNode = null;
                     this.InitializeStartingPoint(m.Start.i, m.Start.j);
-                    mw.Dispatcher.Invoke(() => { 
+                    mw.Dispatcher.Invoke(() => {
+                        ColorCurrentNode(mw);
                         ColorQueuedNode(mw); 
                     });
                     await Task.Delay(delayDuration);
@@ -198,7 +198,8 @@ namespace TreasureHunterAlgo
                 {
                     Stopwatch tspStopwatch = Stopwatch.StartNew();
                     this.InitializeStartingPoint(resultNode.I, resultNode.J);
-                    mw.Dispatcher.Invoke(() => { 
+                    mw.Dispatcher.Invoke(() => {
+                        ColorCurrentNode(mw);
                         ColorQueuedNode(mw); 
                     });
                     await Task.Delay(delayDuration);

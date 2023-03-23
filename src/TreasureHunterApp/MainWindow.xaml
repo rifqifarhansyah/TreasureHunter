@@ -23,12 +23,12 @@
         <TextBlock TextWrapping="Wrap" Text="Treasure Hunter" VerticalAlignment="Center" Height="86" Foreground="#FFEDE6E6" FontSize="56" Margin="84,0,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="420"/>
         <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="57" Foreground="#FFEDE6E6" FontSize="32" Margin="42,25,0,0" HorizontalAlignment="Left" Width="96" Grid.Row="1"><Run Text="Input"/><LineBreak/><Run/></TextBlock>
         <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="57" Foreground="#FFEDE6E6" FontSize="32" Margin="39,25,0,0" HorizontalAlignment="Left" Width="123" Grid.Row="1" Grid.Column="1" Text="Output"/>
-        <Button x:Name="fileButton" Content="Choose File" HorizontalAlignment="Center" Margin="0,91,0,0" Grid.Row="1" VerticalAlignment="Top" Click="fileButton_Click" Height="71" Width="248" BorderBrush="#FF7B5BED" Background="#FF25262A" Foreground="#FF7B5BED" FontSize="24"/>
-        <TextBlock x:Name="fileName" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Foreground="#FF7A7776" FontSize="16" Margin="49,167,0,0" HorizontalAlignment="Left" Width="237" Grid.Row="1" Text="No File Chosen"/>
-        <RadioButton x:Name="bfs_radio" Content="BFS" HorizontalAlignment="Left" Height="31" Margin="49,239,0,0" Grid.Row="1" VerticalAlignment="Top" Width="67" Checked="RadioButton_Checked" Foreground="#FFEDE6E6" FontSize="16" RenderTransformOrigin="0.745,-2.893"/>
-        <RadioButton x:Name="dfs_radio" Content="DFS&#xD;&#xA;" HorizontalAlignment="Left" Height="25" Margin="49,263,0,0" Grid.Row="1" VerticalAlignment="Top" Width="65" Checked="RadioButton_Checked" Foreground="#FFEDE6E6" FontSize="16" RenderTransformOrigin="-0.52,-2.261"/>
-        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Foreground="#FFEDE6E6" FontSize="18" Margin="49,205,0,0" HorizontalAlignment="Left" Width="144" Grid.Row="1" Text="Algorithm"/>
-        <CheckBox x:Name="tsp_check" Content="TSP" HorizontalAlignment="Left" Height="26" Margin="49,300,0,0" Grid.Row="1" VerticalAlignment="Top" Width="67" Checked="CheckBox_Checked" Foreground="#FFEDE6E6" FontSize="16"/>
+        <Button x:Name="fileButton" Content="Choose File" HorizontalAlignment="Left" Margin="173,103,0,0" Grid.Row="1" VerticalAlignment="Top" Click="fileButton_Click" Height="52" Width="114" BorderBrush="#FF7B5BED" Background="#FF25262A" Foreground="#FF7B5BED" FontSize="20"/>
+        <TextBlock x:Name="fileName" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Foreground="#FF7A7776" FontSize="14" Margin="49,196,0,0" HorizontalAlignment="Left" Width="237" Grid.Row="1" Text="No File Chosen"/>
+        <RadioButton x:Name="bfs_radio" Content="BFS" HorizontalAlignment="Left" Height="31" Margin="49,268,0,0" Grid.Row="1" VerticalAlignment="Top" Width="67" Checked="RadioButton_Checked" Foreground="#FFEDE6E6" FontSize="14" RenderTransformOrigin="0.745,-2.893"/>
+        <RadioButton x:Name="dfs_radio" Content="DFS&#xD;&#xA;" HorizontalAlignment="Left" Height="25" Margin="49,287,0,0" Grid.Row="1" VerticalAlignment="Top" Width="65" Checked="RadioButton_Checked" Foreground="#FFEDE6E6" FontSize="14" RenderTransformOrigin="-0.52,-2.261"/>
+        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Foreground="#FFEDE6E6" FontSize="16" Margin="49,234,0,0" HorizontalAlignment="Left" Width="144" Grid.Row="1" Text="Algorithm"/>
+        <CheckBox x:Name="tsp_check" Content="TSP" HorizontalAlignment="Left" Height="26" Margin="49,318,0,0" Grid.Row="1" VerticalAlignment="Top" Width="67" Checked="CheckBox_Checked" Foreground="#FFEDE6E6" FontSize="14"/>
         <Button Content="Visualize" HorizontalAlignment="Center" Margin="0,409,0,0" Grid.Row="1" VerticalAlignment="Top" Click="visualizeButton_Click" Height="59" Width="227" BorderBrush="#FF7B5BED" Background="#FF7B5BED" Foreground="#FFEDE6E6" FontSize="24"/>
         <Button Content="Search" HorizontalAlignment="Left" Margin="251,409,0,0" Grid.Row="1" VerticalAlignment="Top" Click="searchButton_Click" Height="59" Width="227" BorderBrush="#FF7B5BED" Background="#FF7B5BED" Foreground="#FFEDE6E6" FontSize="24" Grid.Column="1"/>
         <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Foreground="#FFEDE6E6" FontSize="20" Margin="677,76,0,0" HorizontalAlignment="Left" Width="144" Grid.Row="1" Grid.Column="1"><Run Text="Route:"/><LineBreak/><Run/><LineBreak/><Run Text="::"/><LineBreak/><Run/></TextBlock>
@@ -40,12 +40,14 @@
 
         </Grid>
         <TextBlock x:Name="directions" TextWrapping="Wrap" VerticalAlignment="Top" Height="227" Foreground="#FFEDE6E6" FontSize="20" Margin="677,108,0,0" HorizontalAlignment="Left" Width="218" Grid.Row="1" Grid.Column="1" Text=" -"/>
-        <Slider x:Name="searchSpeed" HorizontalAlignment="Left" Height="27" Margin="49,365,0,0" Grid.Row="1" VerticalAlignment="Top" Width="190" Maximum="1000" Minimum="50" ValueChanged="searchSpeed_ValueChanged" Value="500"/>
-        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Foreground="#FFEDE6E6" FontSize="18" Margin="49,331,0,0" HorizontalAlignment="Left" Width="144" Grid.Row="1" Text="Search Speed"/>
-        <TextBlock x:Name="delayValue" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Foreground="#FF7A7776" FontSize="16" Margin="244,360,0,0" HorizontalAlignment="Left" Width="102" Grid.Row="1" Grid.ColumnSpan="2" Text="- ms"/>
+        <Slider x:Name="searchSpeed" HorizontalAlignment="Left" Height="27" Margin="49,370,0,0" Grid.Row="1" VerticalAlignment="Top" Width="190" Maximum="1000" Minimum="50" ValueChanged="searchSpeed_ValueChanged" Value="500" FontSize="14"/>
+        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Foreground="#FFEDE6E6" FontSize="16" Margin="49,344,0,0" HorizontalAlignment="Left" Width="144" Grid.Row="1" Text="Search Speed" RenderTransformOrigin="0.5,0.861"/>
+        <TextBlock x:Name="delayValue" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Foreground="#FF7A7776" FontSize="14" Margin="244,368,0,0" HorizontalAlignment="Left" Width="102" Grid.Row="1" Grid.ColumnSpan="2" Text="- ms"/>
         <Grid x:Name="imageGrid" Grid.Column="1" HorizontalAlignment="Left" Height="287" Margin="100,91,0,0" Grid.Row="1" VerticalAlignment="Top" Width="530">
             <Grid/>
 
         </Grid>
+        <Button x:Name="startingDir" Content="Starting Dir" HorizontalAlignment="Left" Margin="49,103,0,0" Grid.Row="1" VerticalAlignment="Top" Height="52" Width="119" BorderBrush="#FF7B5BED" Background="#FF25262A" Foreground="#FF7B5BED" FontSize="20" Click="startingDir_Click"/>
+        <TextBox x:Name="textFileInputField" HorizontalAlignment="Left" Height="27" Margin="49,164,-4,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Background="White" Foreground="#FF7A7776" BorderBrush="#FFABABAB" FontSize="16" VerticalContentAlignment="Center" Padding="6,0,0,4" TextChanged="textFileInputField_TextChanged" Text="File name (.txt)"/>
     </Grid>
 </Window>
