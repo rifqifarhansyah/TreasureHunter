@@ -1,6 +1,7 @@
 # Tubes2_dicarryVieridanZaki
 <h2 align="center">
 📱 BFS and DFS for Solving Maze Treasure Hunt Problems 📱<br/>
+  ![Treasure Hunt Gif](https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki/blob/main/img/TreasureHunter.gif?raw=true)
 </h2>
 <hr>
 
