@@ -75,8 +75,11 @@ git clone https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki.git
     - Click `Open` > `Project/Solution`
     - Navigate to the directory where you clone this repository
     - Go to `Tubes2_dicarryVieridanZaki/src/TreasureHunterApp` folder
-    - Click `TreasureHunterApp.cspoj`
+    - Click `TreasureHunterApp.csproj`
 3. After the project is opened, you can run the program by clicking the `Start` button in the top center of the screen
+4. Alternatively, you can also run the program by using the following steps:
+    - Go to `Tubes2_dicarryVieridanZaki/src/TreasureHunterApp/bin/Debug` folder
+    - Double click `TreasureHunterApp.exe`
 
 
 <a name="videocapture"></a>
@@ -134,16 +137,28 @@ git clone https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki.git
 │       │       applicationhost.config
 │       │
 │       ├───FileContentIndex
-│       │   │   4b29f879-a239-43be-9a68-07ac62d0e9b4.vsidx
-│       │   │   889e720c-070c-427e-990c-c9f72a560e0c.vsidx
-│       │   │   c1c03b34-790f-4f39-8c9f-62fa4479e509.vsidx
-│       │   │   d1b3419b-27f8-456f-b4ab-dc96299f3e8a.vsidx
+│       │   │   25841f9c-98ef-495e-a3cb-b4ce8cc36050.vsidx
+│       │   │   2ad4844b-b28a-42d7-b454-977c672cfadc.vsidx
+│       │   │   b50e6171-5418-41ac-977a-a5e3990006a9.vsidx
+│       │   │   c772a3ef-946f-4640-9d12-9e40acf8ffc8.vsidx
 │       │   │   read.lock
 │       │   │
 │       │   └───merges
 │       └───v17
 ├───bin
-│       try.exe
+│   │   autorun.inf
+│   │   setup.exe
+│   │   TreasureHunterApp.application
+│   │
+│   └───Application Files
+│       └───TreasureHunterApp_1_0_0_11
+│               icons8-treasure-chest-80.png.deploy
+│               Money.png.deploy
+│               Treasure.png.deploy
+│               TreasureHunterApp.application
+│               TreasureHunterApp.exe.config.deploy
+│               TreasureHunterApp.exe.deploy
+│               TreasureHunterApp.exe.manifest
 │
 ├───doc
 │       dicarryVieridanZaki.pdf
@@ -151,7 +166,7 @@ git clone https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki.git
 │
 ├───img
 │       icons8-treasure-chest-80.png
-│       KrustyKrab.png
+│       Money.png
 │       SS1.png
 │       SS2.png
 │       SS3.png
@@ -168,34 +183,70 @@ git clone https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki.git
 │       │   ColorExtension.cs
 │       │   DFS.cs
 │       │   icons8-treasure-chest-80.png
-│       │   KrustyKrab.png
 │       │   MainWindow.xaml
 │       │   MainWindow.xaml.cs
 │       │   Maze.cs
 │       │   microsoft.windowsapicodepack-shell.1.1.0.nupkg
+│       │   Money.png
 │       │   Node.cs
 │       │   SolidColorBrushComparer.cs
+│       │   Treasure.png
 │       │   TreasureHunterApp.csproj
+│       │   TreasureHunterApp.csproj.user
 │       │   TreasureHunterApp.sln
+│       │   TreasureHunterApp_TemporaryKey.pfx
 │       │   treasurehuntericon.png
 │       │
 │       ├───.vs
 │       │   └───TreasureHunterApp
 │       │       ├───FileContentIndex
-│       │       │   │   3bb406fe-d952-4fed-aa2c-3b9259ff21c5.vsidx
-│       │       │   │   7b7c6e4d-2511-4009-879c-e5e758aac6fb.vsidx
-│       │       │   │   ea878ab6-94b1-4c06-92a6-cec77e62db26.vsidx
-│       │       │   │   read.lock
-│       │       │   │
-│       │       │   └───merges
+│       │       │       2f4b00c2-4538-4ab2-8c93-2f2445939028.vsidx
+│       │       │       736a53da-437b-42a0-8efc-fb31cacc1ded.vsidx
+│       │       │       80a182a5-ff69-4f0a-a280-87b00e8ba85a.vsidx
+│       │       │       9cae0026-9ed7-4024-8ed0-824770039fcd.vsidx
+│       │       │       ee195175-79b1-47f1-a0e8-3ebb2e71b578.vsidx
+│       │       │       read.lock
+│       │       │
 │       │       └───v17
+│       │               .suo
+│       │
 │       ├───bin
 │       │   ├───Debug
-│       │   │       TreasureHunterApp.exe
-│       │   │       TreasureHunterApp.exe.config
-│       │   │       TreasureHunterApp.pdb
+│       │   │   │   icons8-treasure-chest-80.png
+│       │   │   │   Money.png
+│       │   │   │   Treasure.png
+│       │   │   │   TreasureHunterApp.application
+│       │   │   │   TreasureHunterApp.exe
+│       │   │   │   TreasureHunterApp.exe.config
+│       │   │   │   TreasureHunterApp.exe.manifest
+│       │   │   │   TreasureHunterApp.pdb
+│       │   │   │
+│       │   │   ├───app.publish
+│       │   │   │       TreasureHunterApp.exe
+│       │   │   │
+│       │   │   └───img
+│       │   │           icons8-treasure-chest-80.png
+│       │   │           Money.png
+│       │   │           Treasure.png
 │       │   │
 │       │   └───Release
+│       │       │   icons8-treasure-chest-80.png
+│       │       │   Money.png
+│       │       │   Treasure.png
+│       │       │   TreasureHunterApp.application
+│       │       │   TreasureHunterApp.exe
+│       │       │   TreasureHunterApp.exe.config
+│       │       │   TreasureHunterApp.exe.manifest
+│       │       │   TreasureHunterApp.pdb
+│       │       │
+│       │       ├───app.publish
+│       │       │       TreasureHunterApp.exe
+│       │       │
+│       │       └───img
+│       │               icons8-treasure-chest-80.png
+│       │               Money.png
+│       │               Treasure.png
+│       │
 │       ├───obj
 │       │   ├───Debug
 │       │   │   │   .NETFramework,Version=v4.7.2.AssemblyAttributes.cs
@@ -206,30 +257,58 @@ git clone https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki.git
 │       │   │   │   MainWindow.baml
 │       │   │   │   MainWindow.g.cs
 │       │   │   │   MainWindow.g.i.cs
+│       │   │   │   TreasureHunterApp.application
 │       │   │   │   TreasureHunterApp.csproj.AssemblyReference.cache
 │       │   │   │   TreasureHunterApp.csproj.CoreCompileInputs.cache
 │       │   │   │   TreasureHunterApp.csproj.FileListAbsolute.txt
 │       │   │   │   TreasureHunterApp.csproj.GenerateResource.cache
 │       │   │   │   TreasureHunterApp.csproj.SuggestedBindingRedirects.cache
 │       │   │   │   TreasureHunterApp.exe
+│       │   │   │   TreasureHunterApp.exe.manifest
 │       │   │   │   TreasureHunterApp.g.resources
 │       │   │   │   TreasureHunterApp.pdb
 │       │   │   │   TreasureHunterApp.Properties.Resources.resources
+│       │   │   │   TreasureHunterApp_al4xpzfm_wpftmp.csproj.AssemblyReference.cache
+│       │   │   │   TreasureHunterApp_Content.g.cs
 │       │   │   │   TreasureHunterApp_Content.g.i.cs
 │       │   │   │   TreasureHunterApp_MarkupCompile.cache
 │       │   │   │   TreasureHunterApp_MarkupCompile.i.cache
 │       │   │   │   TreasureHunterApp_MarkupCompile.lref
 │       │   │   │
 │       │   │   └───TempPE
+│       │   │           KrustyKrab.Designer.cs.dll
+│       │   │           Pics.Designer.cs.dll
 │       │   │           Properties.Resources.Designer.cs.dll
 │       │   │
 │       │   └───Release
-│       │           .NETFramework,Version=v4.7.2.AssemblyAttributes.cs
-│       │           App.g.cs
-│       │           MainWindow.g.cs
-│       │           TreasureHunterApp.csproj.AssemblyReference.cache
-│       │           TreasureHunterApp_MarkupCompile.cache
-│       │           TreasureHunterApp_MarkupCompile.lref
+│       │       │   .NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+│       │       │   App.g.cs
+│       │       │   App.g.i.cs
+│       │       │   DesignTimeResolveAssemblyReferences.cache
+│       │       │   DesignTimeResolveAssemblyReferencesInput.cache
+│       │       │   MainWindow.g.cs
+│       │       │   MainWindow.g.i.cs
+│       │       │   TreasureHunterApp.application
+│       │       │   TreasureHunterApp.csproj.AssemblyReference.cache
+│       │       │   TreasureHunterApp.csproj.CoreCompileInputs.cache
+│       │       │   TreasureHunterApp.csproj.FileListAbsolute.txt
+│       │       │   TreasureHunterApp.csproj.GenerateResource.cache
+│       │       │   TreasureHunterApp.csproj.SuggestedBindingRedirects.cache
+│       │       │   TreasureHunterApp.exe
+│       │       │   TreasureHunterApp.exe.manifest
+│       │       │   TreasureHunterApp.g.resources
+│       │       │   TreasureHunterApp.pdb
+│       │       │   TreasureHunterApp.Properties.Resources.resources
+│       │       │   TreasureHunterApp_al4xpzfm_wpftmp.csproj.AssemblyReference.cache
+│       │       │   TreasureHunterApp_Content.g.cs
+│       │       │   TreasureHunterApp_Content.g.i.cs
+│       │       │   TreasureHunterApp_MarkupCompile.cache
+│       │       │   TreasureHunterApp_MarkupCompile.i.cache
+│       │       │   TreasureHunterApp_MarkupCompile.lref
+│       │       │
+│       │       └───TempPE
+│       │               KrustyKrab.Designer.cs.dll
+│       │               Properties.Resources.Designer.cs.dll
 │       │
 │       └───Properties
 │               AssemblyInfo.cs
@@ -240,10 +319,15 @@ git clone https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki.git
 │
 └───test
         test.txt
+        test.zip
         test1.txt
         test10.txt
         test11.txt
         test12.txt
+        test13.txt
+        test14.txt
+        test15.txt
+        test16.txt
         test2.txt
         test4.txt
         test5.txt
@@ -251,6 +335,7 @@ git clone https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki.git
         test7.txt
         test8.txt
         test9.txt
+        TestMaze.txt
 ```
 
 <a name="project-status">
