@@ -2,14 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\TreasureHunter",
-    "\\src\\TreasureHunter\\bin",
-    "\\src\\TreasureHunter\\bin\\Release",
-    "\\src\\TreasureHunter\\obj",
-    "\\src\\TreasureHunter\\obj\\Debug",
-    "\\src\\TreasureHunter\\Properties",
-    "\\src\\TreasureHunter\\Resources"
+    "\\src\\TreasureHunterApp"
   ],
-  "SelectedNode": "\\src\\TreasureHunter\\Form1.cs",
+  "SelectedNode": "\\src\\TreasureHunterApp\\TreasureHunterApp.csproj.user",
   "PreviewInSolutionExplorer": true
 }
