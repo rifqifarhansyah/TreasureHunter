@@ -87,6 +87,7 @@ namespace TreasureHunterAlgo
             Task.Run(async () =>
             {
                 Node resultNode = null;
+                int nodeCount = 0;
                 int mainProgram = 0;
                 int tSP = 0;
                 Stopwatch mainStopwatch = Stopwatch.StartNew();
@@ -106,6 +107,7 @@ namespace TreasureHunterAlgo
                         if (!IsDiscovered(tempCurNode, discovered))
                         {
                             CurNode = tempCurNode;
+                            nodeCount++;
                             this.discovered.Add(tempCurNode);
                             mw.Dispatcher.Invoke(() => { 
                                 ColorCurrentNode(mw); 
@@ -153,6 +155,7 @@ namespace TreasureHunterAlgo
                         if (!IsDiscovered(tempNode, this.discovered))
                         {
                             this.curNode = tempNode;
+                            nodeCount++;
                             mw.Dispatcher.Invoke(() => { 
                                 ColorCurrentNode(mw); 
                             });
@@ -180,7 +183,7 @@ namespace TreasureHunterAlgo
                     ClearNonPath(mw, resultNode);
                     string v = string.Join(" - ", resultNode.Route);
                     mw.directions.Text = v;
-                    mw.nodeCount.Text = "Nodes: " + this.m.countWhiteTiles().ToString();
+                    mw.nodeCount.Text = "Nodes: " + nodeCount.ToString();
                     mw.stepCount.Text = "Steps: " + (resultNode.Route.Count()).ToString();
                     mw.elapsedTime.Text = "Elapsed Time: " + ((int)elapsedTime.TotalMilliseconds).ToString() + " ms";
                 });

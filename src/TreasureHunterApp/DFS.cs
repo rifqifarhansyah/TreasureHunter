@@ -178,6 +178,7 @@ namespace TreasureHunterAlgo
         {
             Task.Run(async () =>
             {
+                int nodeCount = 0;
                 Node resultNode = null;
                 int mainProgramDelayCount = 0;
                 int goBackHomeDelayCount = 0;
@@ -199,6 +200,7 @@ namespace TreasureHunterAlgo
                         if (!BFS.IsDiscovered(tempCurNode, discovered))
                         {
                             CurNode = tempCurNode;
+                            nodeCount++;
                             this.discovered.Add(tempCurNode);
                             mw.Dispatcher.Invoke(() => { 
                                 ColorCurrentNode(mw); 
@@ -251,6 +253,7 @@ namespace TreasureHunterAlgo
                         if (this.m.Content[tempNode.I][tempNode.J] == "K")
                         {
                             this.curNode = tempNode;
+                            nodeCount++;
                             this.discovered.Add(tempNode);
                             break;
                         }
@@ -262,6 +265,7 @@ namespace TreasureHunterAlgo
                             await Task.Delay(delayDuration);
                             goBackHomeDelayCount++;
                             this.curNode = tempNode;
+                            nodeCount++;
                             this.discovered.Add(tempNode);
                             if (this.m.Content[curNode.I][curNode.J] == "K")
                             {
@@ -284,7 +288,7 @@ namespace TreasureHunterAlgo
                     ClearNonPath(mw, resultNode);
                     string v = string.Join(" - ", resultNode.Route);
                     mw.directions.Text = v;
-                    mw.nodeCount.Text = "Nodes: " + this.m.countWhiteTiles().ToString();
+                    mw.nodeCount.Text = "Nodes: " + nodeCount.ToString();
                     mw.stepCount.Text = "Steps: " + (resultNode.Route.Count()).ToString();
                     mw.elapsedTime.Text = "Elapsed Time: " + ((int)elapsedTime.TotalMilliseconds).ToString() + " ms";
                 });
