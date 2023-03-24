@@ -1,8 +1,6 @@
 # Tubes2_dicarryVieridanZaki
 <h2 align="center">
 📱 BFS and DFS for Solving Maze Treasure Hunt Problems 📱<br/>
-
-  ![Treasure Hunt Gif](https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki/blob/main/img/TreasureHunter.gif?raw=true)
 </h2>
 <hr>
 
@@ -13,7 +11,7 @@
 4. [Technologies Used](#technologies-used)
 5. [Setup](#setup)
 6. [Usage](#usage)
-7. [Screenshots](#screenshots)
+7. [Video Capture](#videocapture)
 7. [Structure](#structure)
 8. [Project Status](#project-status)
 9. [Room for Improvement](#room-for-improvement)
@@ -23,7 +21,7 @@
 <a name="general-information"></a>
 
 ## General Information
-A simple program that write in C# language to implement BFS and DFS algorithm for solving maze treasure hunt problems. This project made for the Tubes 2 of IF2211 - Strategi Algoritma course at ITB.
+A simple program that write in C# language to implement BFS and DFS algorithm for solving maze treasure hunt problems. This project made for fulfilling Tubes 2 of IF2211 - Strategi Algoritma course at ITB 2022/2023.
 
 <a name="creator-information"></a>
 
@@ -58,10 +56,13 @@ A simple program that write in C# language to implement BFS and DFS algorithm fo
 1. ON GOING
 
 
-<a name="screenshots"></a>
+<a name="videocapture"></a>
 
-## Screenshots
-ON GOING
+## Video Capture
+<nl>
+
+![Treasure Hunt Gif](https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki/blob/main/img/TreasureHunter.gif?raw=true)
+
 
 <a name="structure"></a>
 
