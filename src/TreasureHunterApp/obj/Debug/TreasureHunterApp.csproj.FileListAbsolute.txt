@@ -46,3 +46,7 @@ C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\T
 C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.csproj.CoreCompileInputs.cache
 C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.exe
 C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESS21\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.pdb
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\bin\Debug\TreasureHunterApp.exe.manifest
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\bin\Debug\TreasureHunterApp.application
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.exe.manifest
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\obj\Debug\TreasureHunterApp.application

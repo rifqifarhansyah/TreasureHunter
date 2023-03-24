@@ -174,35 +174,6 @@ namespace TreasureHunterAlgo
             }
             return false;
         }
-        public void GetOneWay()
-        {
-            while (this.liveNode.Count != 0)
-            {
-                Node tempNode = liveNode.Pop();
-                if (!BFS.IsDiscovered(tempNode, this.discovered) && !isDiscoveredFirst(tempNode, this.discovered))
-                {
-                    this.curNode = tempNode;
-                    this.discovered.Add(tempNode);
-                    if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
-                    {
-                        while (Discovered.Count != 0)
-                        {
-                            Discovered.RemoveAt(Discovered.Count - 1);
-                        }
-                        this.curNode.TreasureFound++;
-                    }
-                    if (CurNode.TreasureFound == this.m.TreasureCount)
-                    {
-                        break;
-                    }
-                    pushNode();
-                }
-            }
-            if (curNode.TreasureFound != this.m.TreasureCount)
-            {
-                curNode = null;
-            }
-        }
         public Node doAction(bool goBackHome, MainWindow mw, int delayDuration)
         {
             Task.Run(async () =>
@@ -211,110 +182,55 @@ namespace TreasureHunterAlgo
                 int mainProgramDelayCount = 0;
                 int goBackHomeDelayCount = 0;
                 Stopwatch mainStopwatch = Stopwatch.StartNew();
-                if (curNode != null)
+                int treasureFound = 0;
+                resultNode = null;
+                this.initializeStartingPoint(m.Start.i, m.Start.j);
+                mw.Dispatcher.Invoke(() => {
+                    ColorCurrentNode(mw);
+                    ColorQueuedNode(mw); 
+                });
+                await Task.Delay(delayDuration);
+                mainProgramDelayCount++;
+                while (treasureFound != this.m.TreasureCount)
                 {
-                    resultNode = BFS.Append(resultNode, curNode, this.m);
-                    initializeStartingPoint(this.m.Start.i, this.m.Start.j);
-                    mw.Dispatcher.Invoke(() => {
-                        ColorCurrentNode(mw);
-                        ColorQueuedNode(mw);
-                    });
-                    await Task.Delay(delayDuration);
-                    mainProgramDelayCount++;
-                    while (this.liveNode.Count != 0)
+                    while (true)
                     {
-                        Node tempNode = liveNode.Pop();
-                        if (!BFS.IsDiscovered(tempNode, this.discovered) && !isDiscoveredFirst(tempNode, this.discovered))
+                        Node tempCurNode = liveNode.Pop();
+                        if (!BFS.IsDiscovered(tempCurNode, discovered))
                         {
-                            this.curNode = tempNode;
-                            this.discovered.Add(tempNode);
-                            mw.Dispatcher.Invoke(() => {
-                                ColorCurrentNode(mw);
+                            CurNode = tempCurNode;
+                            this.discovered.Add(tempCurNode);
+                            mw.Dispatcher.Invoke(() => { 
+                                ColorCurrentNode(mw); 
                             });
                             await Task.Delay(delayDuration);
                             mainProgramDelayCount++;
                             if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
                             {
-                                if (curNode.isSubsetOf(resultNode))
-                                {
-                                    mw.Dispatcher.Invoke(() => { 
-                                        ClearNonPath(mw, curNode); 
-                                    });
-                                    await Task.Delay(delayDuration);
-                                    mainProgramDelayCount++;
-                                }
+                                treasureFound++;
+                                this.m.Content[CurNode.I][CurNode.J] = "R";
+                                resultNode = BFS.Append(resultNode, CurNode, m);
+                                this.initializeStartingPoint(CurNode.I, CurNode.J);
                                 while (Discovered.Count != 0)
                                 {
                                     Discovered.RemoveAt(Discovered.Count - 1);
                                 }
-                                this.curNode.TreasureFound++;
-                            }
-                            if (CurNode.TreasureFound == this.m.TreasureCount)
-                            {
-                                break;
-                            }
-                            pushNode();
-                            mw.Dispatcher.Invoke(() => {
-                                ColorQueuedNode(mw);
-                            });
-                            await Task.Delay(delayDuration);
-                            mainProgramDelayCount++;
-                        }
-                        //discover.Pop();
-                    }
-                }
-                else
-                {
-                    int treasureFound = 0;
-                    resultNode = null;
-                    this.initializeStartingPoint(m.Start.i, m.Start.j);
-                    mw.Dispatcher.Invoke(() => {
-                        ColorCurrentNode(mw);
-                        ColorQueuedNode(mw); 
-                    });
-                    await Task.Delay(delayDuration);
-                    mainProgramDelayCount++;
-                    while (treasureFound != this.m.TreasureCount)
-                    {
-                        while (true)
-                        {
-                            Node tempCurNode = liveNode.Pop();
-                            if (!BFS.IsDiscovered(tempCurNode, discovered))
-                            {
-                                CurNode = tempCurNode;
-                                this.discovered.Add(tempCurNode);
-                                mw.Dispatcher.Invoke(() => { 
-                                    ColorCurrentNode(mw); 
-                                });
-                                await Task.Delay(delayDuration);
-                                mainProgramDelayCount++;
-                                if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
-                                {
-                                    treasureFound++;
-                                    this.m.Content[CurNode.I][CurNode.J] = "R";
-                                    resultNode = BFS.Append(resultNode, CurNode, m);
-                                    this.initializeStartingPoint(CurNode.I, CurNode.J);
-                                    while (Discovered.Count != 0)
-                                    {
-                                        Discovered.RemoveAt(Discovered.Count - 1);
-                                    }
-                                    mw.Dispatcher.Invoke(() => {
-                                        ClearNonPath(mw, resultNode);
-                                        ColorQueuedNode(mw); 
-                                    });
-                                    await Task.Delay(delayDuration);
-                                    mainProgramDelayCount++;
-                                    break;
-                                }
-                                pushNode();
-                                mw.Dispatcher.Invoke(() => { 
+                                mw.Dispatcher.Invoke(() => {
+                                    ClearNonPath(mw, resultNode);
                                     ColorQueuedNode(mw); 
                                 });
                                 await Task.Delay(delayDuration);
                                 mainProgramDelayCount++;
+                                break;
                             }
-
+                            pushNode();
+                            mw.Dispatcher.Invoke(() => { 
+                                ColorQueuedNode(mw); 
+                            });
+                            await Task.Delay(delayDuration);
+                            mainProgramDelayCount++;
                         }
+
                     }
                 }
                 mainStopwatch.Stop();
@@ -362,7 +278,7 @@ namespace TreasureHunterAlgo
                     resultNode = BFS.Append(resultNode, curNode, this.m);
                     goBackHomeStopwatch.Stop();
                     TimeSpan elapsedTSP = goBackHomeStopwatch.Elapsed - TimeSpan.FromMilliseconds(goBackHomeDelayCount * delayDuration);
-                    elapsedTime -= elapsedTSP;
+                    elapsedTime += elapsedTSP;
                 }
                 mw.Dispatcher.Invoke(() => {
                     ClearNonPath(mw, resultNode);

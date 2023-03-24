@@ -64,20 +64,20 @@ namespace TreasureHunterAlgo
             Node rightNode = new Node(curNode.I, curNode.J + 1, curNode);
             Node bottomNode = new Node(curNode.I + 1, curNode.J, curNode);
             Node leftNode = new Node(curNode.I, curNode.J - 1, curNode);
-            if (this.m.isIdxEff(curNode.I - 1, curNode.J) && this.m.Content[curNode.I - 1][curNode.J] != "X" && !curNode.isBackTrack(curNode.I - 1, curNode.J) && !IsDiscovered(upperNode, this.discovered))
+            if (this.m.isIdxEff(curNode.I - 1, curNode.J) && this.m.Content[curNode.I - 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I - 1, curNode.J) && !IsDiscovered(upperNode, this.discovered))
             {
                 liveNode.Enqueue(upperNode);
             }
-            if (this.m.isIdxEff(curNode.I, curNode.J + 1) && this.m.Content[curNode.I][curNode.J + 1] != "X" && !curNode.isBackTrack(curNode.I, curNode.J + 1) && !IsDiscovered(rightNode, this.discovered))
+            if (this.m.isIdxEff(curNode.I, curNode.J + 1) && this.m.Content[curNode.I][curNode.J + 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J + 1) && !IsDiscovered(rightNode, this.discovered))
             {
                 liveNode.Enqueue(rightNode);
 
             }
-            if (this.m.isIdxEff(curNode.I + 1, curNode.J) && this.m.Content[curNode.I + 1][curNode.J] != "X" && !curNode.isBackTrack(curNode.I + 1, curNode.J) && !IsDiscovered(bottomNode, this.discovered))
+            if (this.m.isIdxEff(curNode.I + 1, curNode.J) && this.m.Content[curNode.I + 1][curNode.J] != "X" && !curNode.hasInPath(curNode.I + 1, curNode.J) && !IsDiscovered(bottomNode, this.discovered))
             {
                 liveNode.Enqueue(bottomNode);
             }
-            if (this.m.isIdxEff(curNode.I, curNode.J - 1) && this.m.Content[curNode.I][curNode.J - 1] != "X" && !curNode.isBackTrack(curNode.I, curNode.J - 1) && !IsDiscovered(leftNode, this.discovered))
+            if (this.m.isIdxEff(curNode.I, curNode.J - 1) && this.m.Content[curNode.I][curNode.J - 1] != "X" && !curNode.hasInPath(curNode.I, curNode.J - 1) && !IsDiscovered(leftNode, this.discovered))
             {
                 liveNode.Enqueue(leftNode);
             }
@@ -90,105 +90,48 @@ namespace TreasureHunterAlgo
                 int mainProgram = 0;
                 int tSP = 0;
                 Stopwatch mainStopwatch = Stopwatch.StartNew();
-                if (curNode != null)
+                int treasureFound = 0;
+                this.InitializeStartingPoint(m.Start.i, m.Start.j);
+                mw.Dispatcher.Invoke(() => {
+                    ColorCurrentNode(mw);
+                    ColorQueuedNode(mw); 
+                });
+                await Task.Delay(delayDuration);
+                mainProgram++;
+                while (treasureFound != this.m.TreasureCount)
                 {
-                    // List<(int i, int j)> coloredTiles = new List<(int i, int j)> ();
-                    resultNode = Append(resultNode, curNode, this.m);
-                    InitializeStartingPoint(m.Start.i, m.Start.j);
-                    mw.Dispatcher.Invoke(() => {
-                        ColorCurrentNode(mw);
-                        ColorQueuedNode(mw);
-                    });
-                    await Task.Delay(delayDuration);
-                    mainProgram++;
-                    while (this.liveNode.Count != 0)
+                    while (true)
                     {
-                        Node tempNode = liveNode.Dequeue();
-                        if (!IsDiscovered(tempNode, this.discovered))
+                        Node tempCurNode = liveNode.Dequeue();
+                        if (!IsDiscovered(tempCurNode, discovered))
                         {
-                            this.curNode = tempNode;
-                            this.discovered.Add(tempNode);
-                            mw.Dispatcher.Invoke(() => {
-                                ColorCurrentNode(mw);
+                            CurNode = tempCurNode;
+                            this.discovered.Add(tempCurNode);
+                            mw.Dispatcher.Invoke(() => { 
+                                ColorCurrentNode(mw); 
                             });
                             await Task.Delay(delayDuration);
                             mainProgram++;
-                            if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
+                            if (this.m.Content[CurNode.I][CurNode.J] == "T")
                             {
-                                if (curNode.isSubsetOf(resultNode))
-                                {
-                                    mw.Dispatcher.Invoke(() => {
-                                        ClearNonPath(mw, curNode);
-                                    });
-                                    await Task.Delay(delayDuration);
-                                    mainProgram++;
-                                }
-                                this.curNode.TreasureFound++;
-                            }
-                            if (CurNode.TreasureFound == this.m.TreasureCount)
-                            {
+                                treasureFound++;
+                                this.m.Content[CurNode.I][CurNode.J] = "R";
+                                resultNode = Append(resultNode, CurNode, m);
+                                this.InitializeStartingPoint(CurNode.I, CurNode.J);
+                                mw.Dispatcher.Invoke(() => {
+                                    ClearNonPath(mw, resultNode);
+                                    ColorQueuedNode(mw);
+                                });
+                                await Task.Delay(delayDuration);
+                                mainProgram++;
                                 break;
                             }
                             EnqueueValidNode();
-                            mw.Dispatcher.Invoke(() => {
-                                ColorQueuedNode(mw);
+                            mw.Dispatcher.Invoke(() => { 
+                                ColorQueuedNode(mw); 
                             });
                             await Task.Delay(delayDuration);
                             mainProgram++;
-                        }
-                    }
-                    mw.Dispatcher.Invoke(() => {
-                        ClearNonPath(mw, resultNode);
-                    });
-                    await Task.Delay(delayDuration);
-                    mainProgram++;
-                }
-                else
-                {
-                    int treasureFound = 0;
-                    resultNode = null;
-                    this.InitializeStartingPoint(m.Start.i, m.Start.j);
-                    mw.Dispatcher.Invoke(() => {
-                        ColorCurrentNode(mw);
-                        ColorQueuedNode(mw); 
-                    });
-                    await Task.Delay(delayDuration);
-                    mainProgram++;
-                    while (treasureFound != this.m.TreasureCount)
-                    {
-                        while (true)
-                        {
-                            Node tempCurNode = liveNode.Dequeue();
-                            if (!IsDiscovered(tempCurNode, discovered))
-                            {
-                                CurNode = tempCurNode;
-                                this.discovered.Add(tempCurNode);
-                                mw.Dispatcher.Invoke(() => { 
-                                    ColorCurrentNode(mw); 
-                                });
-                                await Task.Delay(delayDuration);
-                                mainProgram++;
-                                if (this.m.Content[CurNode.I][CurNode.J] == "T")
-                                {
-                                    treasureFound++;
-                                    this.m.Content[CurNode.I][CurNode.J] = "R";
-                                    resultNode = Append(resultNode, CurNode, m);
-                                    this.InitializeStartingPoint(CurNode.I, CurNode.J);
-                                    mw.Dispatcher.Invoke(() => {
-                                        ClearNonPath(mw, resultNode);
-                                        ColorQueuedNode(mw);
-                                    });
-                                    await Task.Delay(delayDuration);
-                                    mainProgram++;
-                                    break;
-                                }
-                                EnqueueValidNode();
-                                mw.Dispatcher.Invoke(() => { 
-                                    ColorQueuedNode(mw); 
-                                });
-                                await Task.Delay(delayDuration);
-                                mainProgram++;
-                            }
                         }
                     }
                 }
@@ -231,7 +174,7 @@ namespace TreasureHunterAlgo
                     resultNode = Append(resultNode, curNode, this.m);
                     tspStopwatch.Stop();
                     TimeSpan elapsedTSP = tspStopwatch.Elapsed - TimeSpan.FromMilliseconds(delayDuration * tSP);
-                    elapsedTime -= elapsedTSP;
+                    elapsedTime += elapsedTSP;
                 }
                 mw.Dispatcher.Invoke(() => {
                     ClearNonPath(mw, resultNode);
@@ -247,37 +190,12 @@ namespace TreasureHunterAlgo
             return null;
 
         }
-        public void GetOneWay()
-        {
-            while (this.liveNode.Count != 0)
-            {
-                Node tempNode = liveNode.Dequeue();
-                if (!IsDiscovered(tempNode, this.discovered))
-                {
-                    curNode = tempNode;
-                    this.discovered.Add(tempNode);
-                    if (this.m.Content[curNode.I][curNode.J] == "T" && !curNode.hasInPath(curNode.I, curNode.J))
-                    {
-                        this.curNode.TreasureFound++;
-                    }
-                    if (CurNode.TreasureFound == this.m.TreasureCount)
-                    {
-                        break;
-                    }
-                    EnqueueValidNode();
-                }
-            }
-            if (curNode.TreasureFound != this.m.TreasureCount)
-            {
-                curNode = null;
-            }
-        }
 
         public static bool IsDiscovered(Node n, List<Node> discoveredNodes)
         {
             foreach (var node in discoveredNodes)
             {
-                if (node == n) return true;
+                if (node.I == n.I && node.J == n.J) return true;
             }
             return false;
         }

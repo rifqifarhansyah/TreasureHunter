@@ -34,6 +34,8 @@ namespace TreasureHunterApp
         public MainWindow()
         {
             InitializeComponent();
+            var newIcon = new BitmapImage(new Uri("icons8-treasure-chest-80.png", UriKind.Relative));
+            Icon = newIcon;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -115,11 +117,11 @@ namespace TreasureHunterApp
                             var image = new Image();
                             if (this.m.Content[i][j] == "K")
                             {
-                                image.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "..\\..\\..\\..\\..\\img\\KrustyKrab.png"));
+                                image.Source = new BitmapImage(new Uri("Money.png", UriKind.Relative));
                             }
                             else if (this.m.Content[i][j] == "T")
                             {
-                                image.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "..\\..\\..\\..\\..\\img\\Treasure.png"));
+                                image.Source = new BitmapImage(new Uri("Treasure.png", UriKind.Relative));
                             }
                             imageGrid.Children.Add(image);
                             Grid.SetColumn(image, j);
@@ -338,13 +340,11 @@ namespace TreasureHunterApp
             if (bfs_radio.IsChecked == true)
             {
                 BFS bFS = new BFS(this.m, this);
-                bFS.GetOneWay();
                 Node solutionNode = bFS.DoAction(tsp_check.IsChecked == true, this, (int)this.searchSpeed.Value);
             }
             else if (dfs_radio.IsChecked == true) 
             {
                 DFS dFS = new DFS(this.m, this);
-                dFS.GetOneWay();
                 Node solutionNode = dFS.doAction(tsp_check.IsChecked == true, this, (int)this.searchSpeed.Value);
             }
         }

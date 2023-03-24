@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TreasureHunterApp"
         mc:Ignorable="d"
-        Title="TreasureHunter" Height="735.6" Width="1280" ResizeMode="NoResize" Icon="/icons8-treasure-chest-80.png">
+        Title="TreasureHunter" Height="735.6" Width="1280" ResizeMode="NoResize">
     <Grid x:Name="mainWindowGrid" Background="#FF16151A">
         <Grid.RowDefinitions>
             <RowDefinition Height="63*"/>
@@ -39,7 +39,7 @@
             <Grid/>
 
         </Grid>
-        <TextBlock x:Name="directions" TextWrapping="Wrap" VerticalAlignment="Top" Height="227" Foreground="#FFEDE6E6" FontSize="20" Margin="677,108,0,0" HorizontalAlignment="Left" Width="218" Grid.Row="1" Grid.Column="1" Text=" -"/>
+        <TextBox x:Name="directions" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Height="227" Foreground="#FFEDE6E6" FontSize="20" Margin="677,108,0,0" HorizontalAlignment="Left" Width="218" Grid.Row="1" Grid.Column="1" Text=" -" Background="{x:Null}" BorderBrush="{x:Null}"/>
         <Slider x:Name="searchSpeed" HorizontalAlignment="Left" Height="27" Margin="49,370,0,0" Grid.Row="1" VerticalAlignment="Top" Width="190" Maximum="1000" Minimum="50" ValueChanged="searchSpeed_ValueChanged" Value="500" FontSize="14"/>
         <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Foreground="#FFEDE6E6" FontSize="16" Margin="49,344,0,0" HorizontalAlignment="Left" Width="144" Grid.Row="1" Text="Search Speed" RenderTransformOrigin="0.5,0.861"/>
         <TextBlock x:Name="delayValue" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Foreground="#FF7A7776" FontSize="14" Margin="244,368,0,0" HorizontalAlignment="Left" Width="102" Grid.Row="1" Grid.ColumnSpan="2" Text="- ms"/>
