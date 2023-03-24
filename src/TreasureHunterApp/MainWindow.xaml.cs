@@ -121,7 +121,7 @@ namespace TreasureHunterApp
                             }
                             else if (this.m.Content[i][j] == "T")
                             {
-                                image.Source = new BitmapImage(new Uri("Treasure.png", UriKind.Relative));
+                                image.Source = new BitmapImage(new Uri("ClosedChest.png", UriKind.Relative));
                             }
                             imageGrid.Children.Add(image);
                             Grid.SetColumn(image, j);
@@ -142,18 +142,12 @@ namespace TreasureHunterApp
 
         }
 
-        public void changeLightGray(int i, int j)
+        public void openChest(int i, int j)
         {
-            TextBox element = mazeGrid.Children
-                                .Cast<TextBox>()
+            Image element = imageGrid.Children
+                                .Cast<Image>()
                                 .FirstOrDefault(ez => Grid.GetRow(ez) == i && Grid.GetColumn(ez) == j);
-            SolidColorBrush white = new SolidColorBrush(Colors.White);
-            SolidColorBrush gray = new SolidColorBrush(Colors.Gray);
-            bool isWhite = new SolidColorBrushComparer().Equals((SolidColorBrush)element.Background, white);
-            if (isWhite)
-            {
-                element.Background = gray;
-            }
+            element.Source = new BitmapImage(new Uri("OpenedChest.png", UriKind.Relative));
         }
         public void changeGreen(int i, int j)
         {
@@ -292,6 +286,19 @@ namespace TreasureHunterApp
             else if (shade == 7)
             {
                 element.Background = greenBrush_7;
+            }
+        }
+        public void changeLightGray(int i, int j)
+        {
+            TextBox element = mazeGrid.Children
+                                .Cast<TextBox>()
+                                .FirstOrDefault(ez => Grid.GetRow(ez) == i && Grid.GetColumn(ez) == j);
+            SolidColorBrush white = new SolidColorBrush(Colors.White);
+            SolidColorBrush gray = new SolidColorBrush(Colors.Gray);
+            bool isWhite = new SolidColorBrushComparer().Equals((SolidColorBrush)element.Background, white);
+            if (isWhite)
+            {
+                element.Background = gray;
             }
         }
         private void fileButton_Click(object sender, RoutedEventArgs e)

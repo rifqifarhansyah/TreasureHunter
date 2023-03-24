@@ -8,7 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("closedchest.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons8-treasure-chest-80.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("openedchest.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("money.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("treasure.png")]
 

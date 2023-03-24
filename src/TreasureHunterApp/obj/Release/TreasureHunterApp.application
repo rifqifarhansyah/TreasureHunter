@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="TreasureHunterApp.exe.manifest" size="4699">
+    <dependentAssembly dependencyType="install" codebase="TreasureHunterApp.exe.manifest" size="5490">
       <assemblyIdentity name="TreasureHunterApp.exe" version="1.0.0.12" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>70dAjjFfUzmN2OO9aAMPRo4f1z7Zl9J7M1djiRc02NI=</dsig:DigestValue>
+        <dsig:DigestValue>zxiKZx2YLJg3/ZeFPkW8MruuO1Rm2GFUsgdu6SR4B2I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

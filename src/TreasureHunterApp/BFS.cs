@@ -123,6 +123,7 @@ namespace TreasureHunterAlgo
                                 mw.Dispatcher.Invoke(() => {
                                     ClearNonPath(mw, resultNode);
                                     ColorQueuedNode(mw);
+                                    mw.openChest(CurNode.I, CurNode.J);
                                 });
                                 await Task.Delay(delayDuration);
                                 mainProgram++;

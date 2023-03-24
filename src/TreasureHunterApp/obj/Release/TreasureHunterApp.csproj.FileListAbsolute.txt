@@ -22,3 +22,5 @@ D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\bin\R
 D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\bin\Release\Money.png
 D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\bin\Release\Treasure.png
 D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\obj\Release\TreasureHunterApp_Content.g.cs
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\bin\Release\ClosedChest.png
+D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\bin\Release\OpenedChest.png

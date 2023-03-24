@@ -42,17 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TreasureHunterApp.exe" size="51160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TreasureHunterApp.exe" size="51672">
       <assemblyIdentity name="TreasureHunterApp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>P79708/0XUpnCtmJNQ1NLIiBiOSZQ7gmuJjMY3D7sYU=</dsig:DigestValue>
+        <dsig:DigestValue>50adn8ZWxfgYl8+qpZGU93Af5ZwuPP0BJMG/XxhV54U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="ClosedChest.png" size="2058833">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>TinbyGXZNcXzuVY2TGV2cUME1exMwcNZfIz1qqNowBo=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="icons8-treasure-chest-80.png" size="2390">
     <hash>
       <dsig:Transforms>
@@ -69,6 +78,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>j31rT8V41fdQUgU9VhK3Plfxti73zsM0OkExNpBNPnU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="OpenedChest.png" size="878631">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>n8Ty6FKgjWXK3GAbJLoBrhlrK+mdTOH5ybs1rUhOKzM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Treasure.png" size="4125172">
