@@ -22,3 +22,27 @@ D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\bin\R
 D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\bin\Release\Money.png
 D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\bin\Release\Treasure.png
 D:\ITB\Semester 4\Strategi Algoritma\Tubes2_13521099\src\TreasureHunterApp\obj\Release\TreasureHunterApp_Content.g.cs
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Release\icons8-treasure-chest-80.png
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Release\Money.png
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Release\Treasure.png
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Release\TreasureHunterApp.exe.config
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Release\TreasureHunterApp.exe.manifest
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Release\TreasureHunterApp.application
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Release\TreasureHunterApp.exe
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\bin\Release\TreasureHunterApp.pdb
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp.csproj.AssemblyReference.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp.csproj.SuggestedBindingRedirects.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\MainWindow.g.cs
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\App.g.cs
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp_Content.g.cs
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp_MarkupCompile.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp_MarkupCompile.lref
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\MainWindow.baml
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp.g.resources
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp.Properties.Resources.resources
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp.csproj.GenerateResource.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp.csproj.CoreCompileInputs.cache
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp.exe.manifest
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp.application
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp.exe
+C:\File\Kuliah\SEM4\Strategi Algoritma\TUBESSSSS2\Tubes2_dicarryVieridanZaki\src\TreasureHunterApp\obj\Release\TreasureHunterApp.pdb

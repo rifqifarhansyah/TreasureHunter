@@ -76,11 +76,14 @@ git clone https://github.com/rifqifarhansyah/Tubes2_dicarryVieridanZaki.git
     - Navigate to the directory where you clone this repository
     - Go to `Tubes2_dicarryVieridanZaki/src/TreasureHunterApp` folder
     - Click `TreasureHunterApp.csproj`
-3. After the project is opened, you can run the program by clicking the `Start` button in the top center of the screen
-4. Alternatively, you can also run the program by using the following steps:
-    - Go to `Tubes2_dicarryVieridanZaki/src/TreasureHunterApp/bin/Debug` folder
-    - Double click `TreasureHunterApp.exe`
-
+3. After the project was opened:
+    - right click on `TreasureHunterApp` in the `Solution Explorer` on the left side of the screen
+    - Choose `Publish`
+    - Browse the directory where you want to save the executable file
+    - Click `Finish`
+    - The executable file will be saved in the directory that you choose
+    - You can run the executable file by double clicking `setup.exe`
+    - And then click `install` to install the program
 
 <a name="videocapture"></a>
 
