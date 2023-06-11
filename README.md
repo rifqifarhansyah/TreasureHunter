@@ -1,6 +1,6 @@
 # Tubes2_dicarryVieridanZaki
 <h2 align="center">
-📱 BFS and DFS for Solving Maze Treasure Hunt Problems 📱<br/>
+📱 BFS and DFS Algorithms for Solving Maze Treasure Hunt Problems 📱<br/>
 </h2>
 <hr>
 
